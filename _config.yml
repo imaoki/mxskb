@@ -1,0 +1,48 @@
+title: mxskb
+description: MAXScript Knowledge Base
+
+author:
+  name: imaoki
+
+copyright: 2015
+
+url: https://imaoki.github.io
+baseurl: "/mxskb"
+
+excerpt_length: 40
+paginate_path: "/page:num"
+paginate: 4
+permalink: /:year-:month-:day-:title
+timezone: Asia/Tokyo
+unpublished: true
+use_minjs: true
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: true
+  # footnote_backlink: ""
+  syntax_highlighter_opts:
+    disable: true
+
+gfm_quirks: paragraph_end
+
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+
+exclude:
+  - _site/
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - src/

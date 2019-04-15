@@ -1,0 +1,15 @@
+<script src="{{ '/assets/js/smooth-scroll.min.js' | relative_url }}"></script>
+{% if site.use_minjs %}
+<script src="{{ '/assets/js/highlight.min.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/main.min.js' | relative_url }}"></script>
+{% else %}
+<script src="{{ '/assets/js/highlight.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/languages/css.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/languages/diff.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/languages/ebnf.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/languages/javascript.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/languages/markdown.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/languages/maxscript.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/languages/xml.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+{% endif %}

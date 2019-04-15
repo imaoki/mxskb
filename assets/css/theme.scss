@@ -1,0 +1,1165 @@
+---
+---
+/*! © 2015 imaoki | MIT License | https://github.com/imaoki */
+
+// =============================================================================
+// Const
+// =============================================================================
+
+$header-mark: "/";
+
+$offset-hover-back: 16;
+$offset-hover-fore: 64;
+
+$icon-alert-triangle: "\e90d";
+$icon-anchor: "\e900";
+$icon-calendar: "\e901";
+$icon-chevron-left: "\e902";
+$icon-chevron-right: "\e903";
+$icon-chevron-up: "\e904";
+$icon-clipboard: "\e910";
+$icon-clock: "\e905";
+$icon-corner-down-left: "\e90c";
+$icon-edit: "\e90e";
+$icon-external-link: "\e908";
+$icon-github: "\e906";
+$icon-info: "\e90f";
+$icon-menu: "\e907";
+$icon-feed: "\e909";
+$icon-search: "\e90a";
+$icon-tag: "\e90b";
+
+$font-sans-serif: sans-serif, sans-serif;
+$font-sans-serif-italic: "游ゴシック Medium", YuGothic, YuGothicM, sans-serif, sans-serif;
+$font-monospace: monospace, monospace;
+$font-icon: "icon";
+$font-external: "Rock Salt", cursive;
+
+// =============================================================================
+// Functions
+// =============================================================================
+
+@function brighten256($source, $offset) {
+  @if $offset > 0 {
+    @return lighten($source, percentage($offset / 256.0));
+  }
+  @else {
+    @return darken($source, percentage(abs($offset) / 256.0));
+  }
+}
+
+@function setAlpha256($source, $alpha) {
+  @return rgba($source, ($alpha / 256.0));
+}
+
+@function generateHeaderMark($level) {
+  $content: "";
+  @for $i from 1 through $level {
+    $content: $content + $header-mark;
+  }
+  @return $content;
+}
+
+@function toString($number) {
+  @return "" + inspect($number);
+}
+
+// =============================================================================
+// Mixin
+// =============================================================================
+
+@mixin hovered-backcolor($source, $offset, $pseudo: 0) {
+  @if $pseudo == 1 {
+    &::before {
+      background-color: $source;
+    }
+
+    &:hover::before {
+      background-color: brighten256($source, $offset);
+    }
+  }
+  @else if $pseudo == 2 {
+    &::after {
+      background-color: $source;
+    }
+
+    &:hover::after {
+      background-color: brighten256($source, $offset);
+    }
+  }
+  @else {
+    background-color: $source;
+
+    &:hover {
+      background-color: brighten256($source, $offset);
+    }
+  }
+}
+
+@mixin hovered-backcolor-alpha($source, $init, $offset, $pseudo: 0) {
+  @if $pseudo == 1 {
+    &::before {
+      background-color: setAlpha256($source, $init);
+    }
+
+    &:hover::before {
+      background-color: setAlpha256($source, $offset);
+    }
+  }
+  @else if $pseudo == 2 {
+    &::after {
+      background-color: setAlpha256($source, $init);
+    }
+
+    &:hover::after {
+      background-color: setAlpha256($source, $offset);
+    }
+  }
+  @else {
+    background-color: setAlpha256($source, $init);
+
+    &:hover {
+      background-color: setAlpha256($source, $offset);
+    }
+  }
+}
+
+@mixin hovered-fontcolor($source, $offset, $pseudo: 0) {
+  @if $pseudo == 1 {
+    &::before {
+      color: $source;
+    }
+
+    &:hover::before {
+      color: brighten256($source, $offset);
+    }
+  }
+  @else if $pseudo == 2 {
+    &::after {
+      color: $source;
+    }
+
+    &:hover::after {
+      color: brighten256($source, $offset);
+    }
+  }
+  @else {
+    color: $source;
+
+    &:hover {
+      color: brighten256($source, $offset);
+    }
+  }
+}
+
+@mixin block-child-margin($margin-normal: 1rem, $margin-header: 5rem) {
+  & > * {
+    margin: $margin-normal 0;
+
+    &:first-child {
+      margin: 0 0 $margin-normal 0;
+
+      &[class*="invisible"] + * {
+        margin: 0 0 $margin-normal 0;
+
+        &:last-child {
+          margin: 0;
+        }
+      }
+    }
+
+    &:last-child {
+      margin: $margin-normal 0 0 0;
+
+      &:first-child {
+        margin: 0;
+      }
+    }
+  }
+
+  & > h1, h2, h3, h4, h5, h6 {
+    margin: $margin-header 0 $margin-normal 0;
+
+    &:first-child {
+      margin: 0 0 $margin-normal 0;
+
+      &[class*="invisible"] + * {
+        margin: 0 0 $margin-normal 0;
+
+        &:last-child {
+          margin: 0;
+        }
+      }
+    }
+
+    &:last-child {
+      margin: $margin-header 0 0 0;
+
+      &:first-child {
+        margin: 0;
+      }
+    }
+  }
+}
+
+@mixin post-content-header($level, $color) {
+  $mark-font-color: setAlpha256(rgb(0, 0, 0), 32);
+  $mark-font-family: $font-external;
+  $mark-font-size: 1rem + 0.5rem * (6 - $level);
+
+  background-color: $color;
+  border-radius: 0.25rem;
+  padding: (0.5rem * (6 - $level)) 1rem;
+  position: relative;
+  text-align: center;
+
+  &::before {
+    color: $mark-font-color;
+    content: toString($level);
+    font-family: $mark-font-family;
+    font-size: $mark-font-size;
+    left: 0.25rem;
+    line-height: 1;
+    margin: auto 0;
+    position: absolute;
+    top: 0.25rem;
+  }
+
+  &::after {
+    bottom: 0.25rem;
+    color: $mark-font-color;
+    content: generateHeaderMark($level);
+    font-family: $mark-font-family;
+    font-size: $mark-font-size;
+    line-height: 1;
+    margin: auto 0;
+    position: absolute;
+    right: 0.25rem;
+  }
+}
+
+// =============================================================================
+// Color Variables
+// =============================================================================
+
+// Link
+// -----------------------------------------------------------------------------
+
+$color-link: rgb(95, 127, 223);
+$color-visited: rgb(159, 127, 159);
+$color-hover: rgb(159, 223, 255);
+$color-active: rgb(127, 159, 191);
+$color-focus-border: rgb(63, 127, 191);
+
+$color-hover-image: setAlpha256($color-hover, 64);
+
+// Base
+// -----------------------------------------------------------------------------
+
+$color-base-back: rgb(31, 31, 31);
+$color-base-fore: rgb(191, 191, 191);
+
+$color-base-fore-dark: brighten256($color-base-fore, -64);
+
+// Scrollbar
+// -----------------------------------------------------------------------------
+
+$color-scrollbar-track: transparent;
+$color-scrollbar-thumb: brighten256($color-base-back, 16);
+
+// Nav
+// -----------------------------------------------------------------------------
+
+$color-nav-fore: brighten256($color-base-fore, -128);
+
+// Toc
+// -----------------------------------------------------------------------------
+
+$color-toc-back: rgb(0, 0, 0);
+$color-toc-icon: $color-base-fore-dark;
+$color-toc-item-back: rgb(255, 255, 255);
+$color-toc-item-fore: $color-base-fore-dark;
+
+// Content
+// -----------------------------------------------------------------------------
+
+$color-content-back: brighten256($color-base-back, 8);
+$color-content-fore: brighten256($color-content-back, 32);
+
+$color-content-l1-back: setAlpha256(rgb(255, 255,255), 8);
+$color-content-l1-fore: setAlpha256(rgb(255, 255,255), 16);
+
+$color-content-l1-back-light: setAlpha256(rgb(255, 255, 255), 64);
+$color-content-l1-back-dark: setAlpha256(rgb(0, 0, 0), 64);
+
+$color-h6-back: brighten256($color-content-back, 8);
+$color-h5-back: brighten256($color-h6-back, 4);
+$color-h4-back: brighten256($color-h5-back, 4);
+$color-h3-back: brighten256($color-h4-back, 4);
+
+// Code
+// -----------------------------------------------------------------------------
+
+$color-code-back: rgb(28, 31, 33);
+$color-code-fore: rgb(192, 197, 206);
+$color-pre-caption-back: setAlpha256(rgb(255, 255,255), 8);
+$color-pre-caption-fore: brighten256($color-base-fore, -128);
+
+// Icon
+// -----------------------------------------------------------------------------
+
+$color-note-fore: rgb(175, 191, 255);
+$color-warning-fore: rgb(223, 191, 55);
+
+$color-github-back: transparent;
+$color-github-back-h: rgb(245, 245, 245);
+$color-github-fore: rgb(245, 245, 245);
+$color-github-fore-h: rgb(64, 120, 192);
+
+$color-feed-back: transparent;
+$color-feed-back-h: rgb(242, 101, 34);
+$color-feed-fore: rgb(242, 101, 34);
+$color-feed-fore-h: rgb(255, 255, 255);
+
+// =============================================================================
+// Reset
+// =============================================================================
+
+* {
+  background-clip: padding-box;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  text-decoration: inherit;
+  word-wrap: inherit;
+
+  &:focus {
+    outline: transparent none 0;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+pre {
+  overflow: auto;
+}
+
+// =============================================================================
+// Font
+// =============================================================================
+
+* {
+  font-family: $font-sans-serif;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: $font-monospace;
+
+  * {
+    font-family: $font-monospace;
+  }
+}
+
+html {
+  font-size: 16px;
+  height: 100%;
+}
+
+body {
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: 0.125em;
+  line-height: 1.7;
+  text-decoration: none;
+  word-wrap: break-word;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 1rem;
+}
+
+// =============================================================================
+// Scrollbar
+// =============================================================================
+
+::-webkit-resizer,
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-corner {
+  display: none;
+  height: 0;
+  width: 0;
+}
+
+::-webkit-scrollbar {
+  background-color: transparent;
+  height: 0.5rem;
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-track-piece {
+  background-color: $color-scrollbar-track;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 0.25rem;
+  @include hovered-backcolor($color-scrollbar-thumb, $offset-hover-back);
+}
+
+// =============================================================================
+// Common Layout
+// =============================================================================
+
+html {
+  background-color: $color-base-back;
+  color: $color-base-fore;
+}
+
+a {
+  &:link {color: $color-link;}
+  &:visited {color: $color-visited;}
+  &:hover {color: $color-hover;}
+  &:active {color: $color-active;}
+  // &:focus {box-shadow: 0 0 0 1px $color-focus-border;}
+
+  &.static {
+    &:link,
+    &:visited,
+    &:hover,
+    &:active {
+      color: $color-base-fore;
+    }
+  }
+}
+
+.page {
+  &.wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    height: 100%;
+    margin: 0 auto;
+    max-width: 50rem;
+    padding: 0 1rem;
+  }
+
+  &.header {
+    align-items: center;
+    display: flex;
+    flex-flow: row wrap;
+    flex: 0 0 auto;
+    justify-content: flex-start;
+    margin: 1rem 0 0 0;
+  }
+
+  &.title {
+    align-items: center;
+    display: flex;
+    flex-flow: row nowrap;
+    margin: 0 0.5rem 0 0;
+  }
+
+  &.nav {
+    .static {
+      padding: 0 0.5rem;
+
+      @include hovered-fontcolor($color-nav-fore, $offset-hover-fore);
+
+      &::before {
+        content: "/";
+      }
+    }
+  }
+
+  &.main {
+    flex: 1 0 auto;
+    margin: 1rem 0 0 0;
+  }
+
+  &.footer {
+    display: flex;
+    flex-flow: row nowrap;
+    flex: 0 0 auto;
+    justify-content: center;
+    margin: 1rem 0;
+  }
+}
+
+.index {
+  &.title {
+    padding: 0.25rem 0.5rem;
+
+    &.tag {
+      &::before {
+        content: "/";
+      }
+    }
+  }
+}
+
+.panel {
+  &.wrapper {
+    border-radius: 0.5rem;
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 0 0 auto;
+    padding: 1rem;
+
+    @include hovered-backcolor($color-content-back, $offset-hover-back);
+  }
+
+  &.header {
+    align-items: center;
+    display: flex;
+    flex-flow: row wrap;
+    flex: 0 0 auto;
+    justify-content: space-between;
+  }
+
+  &.title {
+    font-weight: bold;
+  }
+
+  &.property {
+    color: $color-content-fore;
+    font-size: 0.8rem;
+  }
+
+  &.excerpt {
+    border-color: $color-content-fore;
+    border-radius: 0 0 0.25rem 0.25rem;
+    border-style: solid;
+    border-width: 1px 0 0 0;
+    color: $color-content-fore;
+    font-size: 0.8rem;
+    padding: 0.25rem 0.5rem;
+  }
+}
+
+.pagination {
+  span {
+    color: $color-base-fore-dark;
+  }
+
+  &.newer {
+    &::before {
+      content: $icon-chevron-left;
+      font-family: $font-icon;
+      margin: 0 0.25rem 0 0;
+      vertical-align: baseline;
+    }
+  }
+
+  &.older {
+    &::after {
+      content: $icon-chevron-right;
+      font-family: $font-icon;
+      margin: 0 0 0 0.25rem;
+      vertical-align: baseline;
+    }
+  }
+
+  &.number {
+    margin: 0 0.5rem;
+  }
+}
+
+.post {
+  &.wrapper {
+    background-color: $color-content-back;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 1rem;
+  }
+
+  &.header {
+    align-items: center;
+    border-bottom: 1px solid $color-content-fore;
+    display: flex;
+    flex-flow: row wrap;
+    flex: 0 0 auto;
+    justify-content: space-between;
+    margin: 0 0 1rem 0;
+  }
+
+  &.title {
+    font-weight: bold;
+  }
+
+  &.property {
+    font-size: 0.8rem;
+  }
+
+  &.main {
+    flex: 1 0 auto;
+  }
+}
+
+.error {
+  align-items: center;
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100%;
+  justify-content: center;
+
+  & > * {
+    flex: 0 0 auto;
+    font-size: 2rem;
+  }
+}
+
+.card {
+  &.wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+  &.main {
+    flex: 1 0 auto;
+  }
+}
+
+.card.main {
+  align-items: flex-start;
+  display: flex;
+  flex-flow: row wrap;
+  flex: 0 0 auto;
+  justify-content: flex-start;
+  margin: -1rem;
+  padding: 0.5rem;
+
+  ul {
+    align-items: stretch;
+    background-color: $color-content-back;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1 1 auto;
+    margin: 0.5rem;
+    padding: 1rem;
+
+    li {
+      align-items: center;
+      display: flex;
+      flex-flow: row wrap;
+      flex: 1 0 auto;
+      justify-content: space-between;
+      margin: 0.5rem 0 0 0;
+
+      &:first-child {
+        align-self: center;
+        margin: 0;
+
+        span {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+}
+
+.hlist {
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0 -0.5rem;
+  padding: 0.25rem;
+
+  &.right {
+    justify-content: flex-end;
+  }
+
+  &.around {
+    justify-content: space-around;
+  }
+
+  &.between {
+    justify-content: space-between;
+  }
+
+  & > .item {
+    display: block;
+    flex: 0 1 auto;
+    margin: 0.25rem;
+
+    &.stretch {
+      flex: 1 1 auto;
+    }
+  }
+}
+
+.vlist {
+  align-items: stretch;
+  display: flex;
+  flex-flow: column wrap;
+
+  & > .item {
+    display: block;
+    flex: 1 1 auto;
+    margin: 0 0 0.5rem 0;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+}
+
+.icon {
+  &::before {
+    font-family: $font-icon;
+    line-height: 1;
+    vertical-align: baseline;
+  }
+
+  &.copy::before {content: $icon-clipboard;}
+  &.date.published::before {content: $icon-calendar;}
+  &.date.updated::before {content: $icon-edit;}
+  &.feed::before {content: $icon-feed;}
+  &.github::before {content: $icon-github;}
+  &.tag::before {content: $icon-tag;}
+}
+
+.button {
+  border-radius: 0.25rem;
+  display: block;
+  padding: 0.25rem 0.5rem;
+
+  &.copy {
+    @include hovered-backcolor($color-content-back, $offset-hover-back);
+    @include hovered-fontcolor($color-base-fore-dark, $offset-hover-fore);
+  }
+
+  &.github {
+    background-color: $color-github-back;
+    color: $color-github-fore;
+
+    &:hover {
+      background-color: $color-github-back-h;
+      color: $color-github-fore-h;
+    }
+  }
+
+  &.feed {
+    background-color: $color-feed-back;
+    color: $color-feed-fore;
+
+    &:hover {
+      background-color: $color-feed-back-h;
+      color: $color-feed-fore-h;
+    }
+  }
+}
+
+.invisible {
+  display: none;
+}
+
+// =============================================================================
+// TOC
+// =============================================================================
+
+.toc {
+  border-radius: 1.5rem;
+  display: flex;
+  flex-flow: column nowrap;
+  height: 3rem;
+  overflow: hidden;
+  padding: 0.5rem;
+  position: fixed;
+  right: 0.5rem;
+  top: 0.5rem;
+  visibility: visible;
+  width: 3rem;
+  z-index: 3;
+
+  @include hovered-backcolor-alpha($color-toc-back, 64, 192);
+  @include hovered-fontcolor($color-toc-icon, $offset-hover-fore, $pseudo: 1);
+
+  &:hover {
+    border-radius: 0;
+    bottom: 0.5rem;
+    height: auto;
+    max-width: 70%;
+    overflow: scroll;
+    width: auto;
+  }
+
+  &::before {
+    content: $icon-menu;
+    display: block;
+    flex: 0 0 auto;
+    font-family: $font-icon;
+    font-size: 1.5rem;
+    line-height: 1;
+    margin: 0.25rem 0.25rem 0.75rem 0.25rem;
+  }
+
+  &::-webkit-scrollbar {
+    height: 0.125rem;
+    width: 0.125rem;
+  }
+
+  ul {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+  li {
+    display: block;
+    flex: 0 0 auto;
+
+    &::before {
+      display: none;
+    }
+
+    & > a {
+      border-radius: 0.25rem;
+      display: block;
+      line-height: 1.0625;
+      overflow: hidden;
+      padding: 0.25rem;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
+      @include hovered-backcolor-alpha($color-toc-item-back, 0, 32);
+      @include hovered-fontcolor($color-toc-item-fore, $offset-hover-fore);
+    }
+  }
+
+  & > li {
+    // level1
+    & > a {padding-left: 0.25rem;}
+
+    & > ul > li {
+      // level2
+      & > a {padding-left: 1.25rem;}
+
+      & > ul > li {
+        // level3
+        & > a {padding-left: 2.25rem;}
+
+        & > ul > li {
+          // level4
+          & > a {padding-left: 3.25rem;}
+
+          & > ul > li {
+            // level5
+            & > a {padding-left: 4.25rem;}
+
+            & > ul > li {
+              // level6
+              & > a {padding-left: 5.25rem;}
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// =============================================================================
+// Content
+// =============================================================================
+
+.post.main {
+  @include block-child-margin;
+
+  a {
+    &:not([href^="{{ site.url }}"]) {
+      &:not([href^="#"]) {
+        &::before {
+          content: "\e908";
+          font-family: $font-icon;
+        }
+      }
+    }
+
+    &.image {
+      display: inline-block;
+      position: relative;
+
+      &::before {
+        bottom: 0;
+        content: "";
+        display: inline-block;
+        left: 0;
+        opacity: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 1;
+      }
+
+      &:hover {
+        &::before {
+          background-color: $color-hover-image;
+          opacity: 1;
+        }
+
+        & > img {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+
+  blockquote {
+    background-color: $color-content-l1-back;
+    border-left: 0.25rem solid $color-content-l1-fore;
+    border-radius: 0.25rem;
+    padding: 1rem;
+
+    @include block-child-margin;
+  }
+
+  code {
+    background-color: $color-code-back;
+    color: $color-code-fore;
+    font-size: 1rem;
+    letter-spacing: 0;
+    line-height: 1.7;
+    padding: 0.25rem 0.5rem;
+  }
+
+  dt {
+    // border-radius: 0.25rem;
+    border-left: 0.5rem solid $color-content-l1-fore;
+    padding: 0 0.5rem;
+  }
+
+  dd + dt {
+    margin: 1rem 0 0 0;
+  }
+
+  dd {
+    padding: 0.5rem 1rem;
+
+    @include block-child-margin;
+  }
+
+  dd + dd {
+    border-top: 1px solid $color-content-l1-fore;
+    margin: 0.5rem 0 0 0;
+    padding: 1rem 1rem 0.5rem 1rem;
+  }
+
+  em {
+    font-family: $font-sans-serif-italic;
+    font-style: italic;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+
+  del {
+    text-decoration: line-through;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: $color-base-fore;
+    font-weight: bold;
+    overflow: hidden;
+  }
+
+  h1 {@include post-content-header(3, $color-h3-back);}
+  h2 {@include post-content-header(3, $color-h3-back);}
+  h3 {@include post-content-header(3, $color-h3-back);}
+  h4 {@include post-content-header(4, $color-h4-back);}
+  h5 {@include post-content-header(5, $color-h5-back);}
+  h6 {@include post-content-header(6, $color-h6-back);}
+
+  hr {
+    border-color: $color-content-l1-fore;
+    border-style: solid;
+    border-width: 1px 0 0 0;
+    display: block;
+  }
+
+  iframe {
+    border: 0 none transparent;
+  }
+
+  img {
+    display: inline-block;
+    vertical-align: bottom;
+  }
+
+  ol, ul {
+    padding: 0 0 0 1rem;
+  }
+
+  ul {
+    & > li {
+      &::before {
+        content: "\2022";
+      }
+    }
+  }
+
+  ol {
+    counter-reset: order;
+
+    & > li {
+      &::before {
+        content: counter(order)".";
+        counter-increment: order;
+      }
+    }
+  }
+
+  li {
+    display: block;
+    position: relative;
+
+    @include block-child-margin;
+
+    &::before {
+      color: $color-content-l1-back-light;
+      display: block;
+      font-family: $font-external;
+      font-size: 0.5rem;
+      left: -3rem;
+      position: absolute;
+      text-align: right;
+      top: 0.25rem;
+      width: 2.75rem;
+    }
+
+    & + li {
+      margin: 1rem 0 0 0;
+    }
+  }
+
+  pre {
+    background-color: $color-code-back;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    letter-spacing: 0;
+    line-height: 1.0625;
+    max-height: 60rem;
+    padding: 0.0rem 0.5rem 0.5rem 0.5rem;
+    position: relative;
+
+    &::before {
+      background-color: $color-pre-caption-back;
+      color: $color-pre-caption-fore;
+      content: attr(data-type);
+      display: block;
+      left: -0.5rem;
+      margin: 0 -0.5rem 0.5rem -0.5rem;
+      padding: 0.25rem;
+      position: sticky;
+      right: 0;
+      text-align: right;
+      top: 0;
+    }
+
+    & > code {
+      background-color: $color-code-back;
+      line-height: 1.0625;
+      padding: 0;
+    }
+  }
+
+
+  table {
+    display: block;
+  }
+
+  th, td {
+    padding: 0 0.5rem;
+    vertical-align: baseline;
+  }
+
+  th {
+    background-color: $color-content-l1-back;
+    border-bottom: 1px solid $color-content-l1-fore;
+
+    & + th {
+      border-left: 1px solid $color-content-l1-fore;
+    }
+
+    &:first-child {
+      border-radius: 0.25rem 0 0 0;
+    }
+
+    &:last-child {
+      border-radius: 0 0.25rem 0 0;
+    }
+  }
+
+  td {
+    & + td {
+      border-left: 1px solid $color-content-l1-fore;
+    }
+  }
+
+  tr {
+    & + tr {
+      & > td {
+        border-top: 1px solid $color-content-l1-fore;
+      }
+    }
+  }
+
+  .footnote,
+  .reversefootnote {
+    font-size: 0.75rem;
+    line-height: 1;
+    vertical-align: super;
+  }
+
+  .footnote {
+    &::before {
+      content: none;
+    }
+  }
+
+  .reversefootnote {
+    &::before {
+      content: $icon-corner-down-left;
+      font-family: $font-icon;
+    }
+  }
+
+  .note {
+    &::before {
+      color: $color-note-fore;
+      content: $icon-info;
+      font-family: $font-icon;
+      margin: 0 0.25rem 0 0;
+    }
+  }
+
+  .warning {
+    &::before {
+      color: $color-warning-fore;
+      content: $icon-alert-triangle;
+      font-family: $font-icon;
+      font-size: 1.5rem;
+      margin: 0 0.25rem 0 0;
+      vertical-align: sub;
+    }
+  }
+
+  .key {
+    background-color: $color-content-l1-back;
+    border-radius: 0.25rem;
+    box-shadow: 0 0.125rem 0 0.125rem $color-content-l1-back-dark;
+    margin: 0 0.25rem;
+  }
+}

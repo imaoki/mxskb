@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ja">
+{% include head.html %}
+<body class="page wrapper">
+<header class="page header">
+<h1 class="page title"><a class="static" href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+<ul class="hlist page nav">
+{% capture site_tags %}{% for tag in site.tags %}{{ tag | first | downcase }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
+{% assign tag_words = site_tags | split: ',' | sort %}
+{% for tag in tag_words %}
+<li class="item"><a class="static tag" href="{{ '/tags/' | append: tag | relative_url }}">{{ tag }}</a></li>
+{% endfor %}
+</ul>
+</header>
+<main class="page main">
+{{ content }}
+</main>
+<footer class="page footer">
+<ul class="hlist">
+<li class="item"><p class="copyright">&copy; {{ site.copyright }} {{ site.author.name }}</p></li>
+<li class="item"><a class="button icon github" href="https://github.com/{{ site.author.name }}"></a></li>
+<li class="item"><a class="button icon feed" href="{{ '/atom.xml' | relative_url }}"></a></li>
+</ul>
+</footer>
+</body>
+</html>

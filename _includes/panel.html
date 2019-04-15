@@ -1,0 +1,13 @@
+{% assign post = include.post %}
+<a class="panel wrapper" href="{{ post.url | relative_url }}">
+<section class="panel header">
+<h3 class="panel title">{{ post.title }}</h3>
+<ul class="hlist right panel property">
+{% if post.updated %}
+<li class="item"><time class="icon date updated">{{ post.updated | date: "%Y-%m-%d" }}</time></li>
+{% endif %}
+<li class="item"><time class="icon date published">{{ post.date | date: "%Y-%m-%d" }}</time></li>
+</ul>
+</section>
+<p class="panel excerpt">{% include excerpt.html content=post.content %}</p>
+</a>

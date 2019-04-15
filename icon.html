@@ -1,0 +1,41 @@
+---
+layout: card
+title: icon
+---
+<!--
+icon.css
+検索:\{\n\s+(content.+;)\n\}
+置換:{$1}
+---
+icon.md
+検索:\.(icon-)(.+):before\s*\{\s*content:\s*"([^"]+)";\s*\}
+置換:<ul><li><span class="$1$2"></span></li><li><code>$2</code><span class="button icon copy" data-text="$2" title="Copy to clipboard"></span></li><li><code>$3</code><span class="button icon copy" data-text="$3" title="Copy to clipboard"></span></li></ul>
+-->
+<ul><li><span class="icon-alert-triangle"></span></li><li><code>alert-triangle</code><span class="button icon copy" data-text="alert-triangle" title="Copy to clipboard"></span></li><li><code>\e90d</code><span class="button icon copy" data-text="\e90d" title="Copy to clipboard"></span></li></ul>
+<ul><li><span class="icon-anchor"></span></li><li><code>anchor</code><span class="button icon copy" data-text="anchor" title="Copy to clipboard"></span></li><li><code>\e900</code><span class="button icon copy" data-text="\e900" title="Copy to clipboard"></span></li></ul>
+<ul><li><span class="icon-calendar"></span></li><li><code>calendar</code><span class="button icon copy" data-text="calendar" title="Copy to clipboard"></span></li><li><code>\e901</code><span class="button icon copy" data-text="\e901" title="Copy to clipboard"></span></li></ul>
+<ul><li><span class="icon-chevron-left"></span></li><li><code>chevron-left</code><span class="button icon copy" data-text="chevron-left" title="Copy to clipboard"></span></li><li><code>\e902</code><span class="button icon copy" data-text="\e902" title="Copy to clipboard"></span></li></ul>
+<ul><li><span class="icon-chevron-right"></span></li><li><code>chevron-right</code><span class="button icon copy" data-text="chevron-right" title="Copy to clipboard"></span></li><li><code>\e903</code><span class="button icon copy" data-text="\e903" title="Copy to clipboard"></span></li></ul>
+<ul><li><span class="icon-chevron-up"></span></li><li><code>chevron-up</code><span class="button icon copy" data-text="chevron-up" title="Copy to clipboard"></span></li><li><code>\e904</code><span class="button icon copy" data-text="\e904" title="Copy to clipboard"></span></li></ul>
+<ul><li><span class="icon-clipboard"></span></li><li><code>clipboard</code><span class="button icon copy" data-text="clipboard" title="Copy to clipboard"></span></li><li><code>\e910</code><span class="button icon copy" data-text="\e910" title="Copy to clipboard"></span></li></ul>
+<ul><li><span class="icon-clock"></span></li><li><code>clock</code><span class="button icon copy" data-text="clock" title="Copy to clipboard"></span></li><li><code>\e905</code><span class="button icon copy" data-text="\e905" title="Copy to clipboard"></span></li></ul>
+<ul><li><span class="icon-corner-down-left"></span></li><li><code>corner-down-left</code><span class="button icon copy" data-text="corner-down-left" title="Copy to clipboard"></span></li><li><code>\e90c</code><span class="button icon copy" data-text="\e90c" title="Copy to clipboard"></span></li></ul>
+<ul><li><span class="icon-edit"></span></li><li><code>edit</code><span class="button icon copy" data-text="edit" title="Copy to clipboard"></span></li><li><code>\e90e</code><span class="button icon copy" data-text="\e90e" title="Copy to clipboard"></span></li></ul>
+<ul><li><span class="icon-external-link"></span></li><li><code>external-link</code><span class="button icon copy" data-text="external-link" title="Copy to clipboard"></span></li><li><code>\e908</code><span class="button icon copy" data-text="\e908" title="Copy to clipboard"></span></li></ul>
+<ul><li><span class="icon-github"></span></li><li><code>github</code><span class="button icon copy" data-text="github" title="Copy to clipboard"></span></li><li><code>\e906</code><span class="button icon copy" data-text="\e906" title="Copy to clipboard"></span></li></ul>
+<ul><li><span class="icon-info"></span></li><li><code>info</code><span class="button icon copy" data-text="info" title="Copy to clipboard"></span></li><li><code>\e90f</code><span class="button icon copy" data-text="\e90f" title="Copy to clipboard"></span></li></ul>
+<ul><li><span class="icon-menu"></span></li><li><code>menu</code><span class="button icon copy" data-text="menu" title="Copy to clipboard"></span></li><li><code>\e907</code><span class="button icon copy" data-text="\e907" title="Copy to clipboard"></span></li></ul>
+<ul><li><span class="icon-rss"></span></li><li><code>rss</code><span class="button icon copy" data-text="rss" title="Copy to clipboard"></span></li><li><code>\e909</code><span class="button icon copy" data-text="\e909" title="Copy to clipboard"></span></li></ul>
+<ul><li><span class="icon-search"></span></li><li><code>search</code><span class="button icon copy" data-text="search" title="Copy to clipboard"></span></li><li><code>\e90a</code><span class="button icon copy" data-text="\e90a" title="Copy to clipboard"></span></li></ul>
+<ul><li><span class="icon-tag"></span></li><li><code>tag</code><span class="button icon copy" data-text="tag" title="Copy to clipboard"></span></li><li><code>\e90b</code><span class="button icon copy" data-text="\e90b" title="Copy to clipboard"></span></li></ul>
+
+<script>
+mxskb.addInitHandler(function() {
+  mxskb.each(document.querySelectorAll('li *[data-text]'), function(el, i) {
+    var textValue = el.getAttribute('data-text');
+    el.addEventListener('click', function() {
+      mxskb.execCopy(textValue);
+    });
+  });
+});
+</script>
