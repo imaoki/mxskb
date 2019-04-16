@@ -31,7 +31,8 @@ $icon-tag: "\e90b";
 
 $font-sans-serif: sans-serif, sans-serif;
 $font-sans-serif-italic: "游ゴシック Medium", YuGothic, YuGothicM, sans-serif, sans-serif;
-$font-monospace: monospace, monospace;
+// $font-monospace: monospace, monospace;
+$font-monospace: 'Ricty Diminished Discord', Consolas, 'Courier New', Courier, Monaco, monospace;
 $font-icon: "icon";
 $font-external: "Rock Salt", cursive;
 
@@ -879,10 +880,12 @@ a {
 
   a {
     &:not([href^="{{ site.url }}"]) {
-      &:not([href^="#"]) {
-        &::before {
-          content: "\e908";
-          font-family: $font-icon;
+      &:not([href^="{{ site.baseurl }}"]) {
+        &:not([href^="#"]) {
+          &::before {
+            content: "\e908";
+            font-family: $font-icon;
+          }
         }
       }
     }
@@ -896,6 +899,7 @@ a {
         content: "";
         display: inline-block;
         left: 0;
+        line-height: 1;
         opacity: 0;
         position: absolute;
         right: 0;
@@ -995,7 +999,8 @@ a {
 
   img {
     display: inline-block;
-    vertical-align: bottom;
+    margin: 0.25rem;
+    vertical-align: middle;
   }
 
   ol, ul {

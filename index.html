@@ -24,7 +24,7 @@ layout: page
 {% if page == paginator.page %}
 <li class="item"><span class="pagination number">{{ page }}</span></li>
 {% elsif page == 1 %}
-<li class="item"><a class="pagination number" href="{{ site.baseurl }}{{ paginator.previous_page_path }}">{{ page }}</a></li>
+<li class="item"><a class="pagination number" href="{{ site.baseurl }}/">{{ page }}</a></li>
 {% else %}
 <li class="item"><a class="pagination number" href="{{ site.baseurl }}{{ site.paginate_path | replace: ':num', page }}">{{ page }}</a></li>
 {% endif %}

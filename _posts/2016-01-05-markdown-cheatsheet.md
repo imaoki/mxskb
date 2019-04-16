@@ -648,50 +648,48 @@ published: true
 記述
 : ```markdown
   画像
-  : テキスト
-    ![代替文字]({{ '/assets/favicon/favicon-32x32.png' | relative_url }} "ツールチップ")
+  : <span/>{:.invisible}
 
-    テキスト
+    相対アドレス![代替文字]({{ '/assets/favicon/small.jpg' | relative_url }} "ツールチップ")
 
   リンク
-  : テキスト
-    [![代替文字]({{ '/assets/favicon/favicon-32x32.png' | relative_url }} "ツールチップ")]({{ '/assets/favicon/favicon-32x32.png' | relative_url }})
+  : <span/>{:.invisible}
 
-    テキスト
+    相対アドレス[![代替文字]({{ '/assets/favicon/small.jpg' | relative_url }} "ツールチップ")]({{ '/assets/favicon/small.jpg' | relative_url }})
+    絶対アドレス[![代替文字]({{ site.url | append: site.baseurl | append: '/assets/favicon/small.jpg' }} "ツールチップ")]({{ site.url | append: site.baseurl | append: '/assets/favicon/small.jpg' }})
+    外部サイト[![代替文字]({{ '/assets/favicon/small.jpg' | relative_url }} "ツールチップ")](https://github.com/)
 
   参照画像
-  : テキスト
-    ![参照画像][img]
-    ![参照画像（ID省略）][]
+  : <span/>{:.invisible}
 
-    テキスト
+    ID指定![参照画像][img]
+    ID省略![参照画像（ID省略）][]
 
-  [img]:{{ '/assets/favicon/favicon-32x32.png' | relative_url }} "ツールチップA"
-  [参照画像（ID省略）]:{{ '/assets/favicon/favicon-32x32.png' | relative_url }} "ツールチップB"
+    [img]:{{ '/assets/favicon/small.jpg' | relative_url }} "ツールチップA"
+    [参照画像（ID省略）]:{{ '/assets/favicon/small.jpg' | relative_url }} "ツールチップB"
   ```
 
 表示
 : 画像
-  : テキスト
-    ![代替文字]({{ '/assets/favicon/favicon-32x32.png' | relative_url }} "ツールチップ")
+  : <span/>{:.invisible}
 
-    テキスト
+    相対アドレス![代替文字]({{ '/assets/favicon/small.jpg' | relative_url }} "ツールチップ")
 
   リンク
-  : テキスト
-    [![代替文字]({{ '/assets/favicon/favicon-32x32.png' | relative_url }} "ツールチップ")]({{ '/assets/favicon/favicon-32x32.png' | relative_url }})
+  : <span/>{:.invisible}
 
-    テキスト
+    相対アドレス[![代替文字]({{ '/assets/favicon/small.jpg' | relative_url }} "ツールチップ")]({{ '/assets/favicon/small.jpg' | relative_url }})
+    絶対アドレス[![代替文字]({{ site.url | append: site.baseurl | append: '/assets/favicon/small.jpg' }} "ツールチップ")]({{ site.url | append: site.baseurl | append: '/assets/favicon/small.jpg' }})
+    外部サイト[![代替文字]({{ '/assets/favicon/small.jpg' | relative_url }} "ツールチップ")](https://github.com/)
 
   参照画像
-  : テキスト
-    ![参照画像][img]
-    ![参照画像（ID省略）][]
+  : <span/>{:.invisible}
 
-    テキスト
+    ID指定![参照画像][img]
+    ID省略![参照画像（ID省略）][]
 
-[img]:{{ '/assets/favicon/favicon-32x32.png' | relative_url }} "ツールチップA"
-[参照画像（ID省略）]:{{ '/assets/favicon/favicon-32x32.png' | relative_url }} "ツールチップB"
+    [img]:{{ '/assets/favicon/small.jpg' | relative_url }} "ツールチップA"
+    [参照画像（ID省略）]:{{ '/assets/favicon/small.jpg' | relative_url }} "ツールチップB"
 
 <!-- ### インラインフレーム
 {:#iframes}
