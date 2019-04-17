@@ -91,8 +91,14 @@
         }
       });
 
+      // mxskb.each(document.querySelectorAll("a[class*='reversefootnote'"), function(el, i) {
+      //   el.textContent = "";
+      // });
       mxskb.each(document.querySelectorAll("a[class*='reversefootnote'"), function(el, i) {
-        el.textContent = "";
+        var parentNode = el.parentNode;
+        if (parentNode) {
+          parentNode.innerHTML = parentNode.innerHTML.replace("&nbsp;", "");
+        }
       });
     });
 

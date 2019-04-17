@@ -29,12 +29,20 @@ $icon-feed: "\e909";
 $icon-search: "\e90a";
 $icon-tag: "\e90b";
 
-$font-sans-serif: sans-serif, sans-serif;
-$font-sans-serif-italic: "游ゴシック Medium", YuGothic, YuGothicM, sans-serif, sans-serif;
+$font-sans-serif: sans-serif;
+$font-sans-serif-italic: "游ゴシック Medium", YuGothic, YuGothicM, sans-serif;
 // $font-monospace: monospace, monospace;
-$font-monospace: 'Ricty Diminished Discord', Monaco, Courier, monospace;
+$font-monospace: 'Ricty Diminished Discord', Menlo, Consolas, Monaco, monospace, monospace, sans-serif;
 $font-icon: "icon";
 $font-external: "Rock Salt", cursive;
+
+$line-height-code: 1.7;
+$line-height-common: 1.7;
+$line-height-icon: 1;
+// $line-height-pre: 1.0625;
+$line-height-pre: 1.375;
+// $line-height-toc: 1.0625;
+$line-height-toc: 1.375;
 
 // =============================================================================
 // Functions
@@ -220,7 +228,7 @@ $font-external: "Rock Salt", cursive;
     font-family: $mark-font-family;
     font-size: $mark-font-size;
     left: 0.25rem;
-    line-height: 1;
+    line-height: $line-height-icon;
     margin: auto 0;
     position: absolute;
     top: 0.25rem;
@@ -232,7 +240,7 @@ $font-external: "Rock Salt", cursive;
     content: generateHeaderMark($level);
     font-family: $mark-font-family;
     font-size: $mark-font-size;
-    line-height: 1;
+    line-height: $line-height-icon;
     margin: auto 0;
     position: absolute;
     right: 0.25rem;
@@ -354,6 +362,15 @@ pre {
   overflow: auto;
 }
 
+sub, sup {
+  bottom: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  position: static;
+  top: inherit;
+  vertical-align: inherit;
+}
+
 // =============================================================================
 // Font
 // =============================================================================
@@ -383,7 +400,7 @@ body {
   font-style: normal;
   font-weight: normal;
   letter-spacing: 0.125em;
-  line-height: 1.7;
+  line-height: $line-height-common;
   text-decoration: none;
   word-wrap: break-word;
 }
@@ -721,7 +738,7 @@ a {
 .icon {
   &::before {
     font-family: $font-icon;
-    line-height: 1;
+    line-height: $line-height-icon;
     vertical-align: baseline;
   }
 
@@ -804,7 +821,7 @@ a {
     flex: 0 0 auto;
     font-family: $font-icon;
     font-size: 1.5rem;
-    line-height: 1;
+    line-height: $line-height-icon;
     margin: 0.25rem 0.25rem 0.75rem 0.25rem;
   }
 
@@ -829,7 +846,7 @@ a {
     & > a {
       border-radius: 0.25rem;
       display: block;
-      line-height: 1.0625;
+      line-height: $line-height-toc;
       overflow: hidden;
       padding: 0.25rem;
       text-overflow: ellipsis;
@@ -882,9 +899,11 @@ a {
     &:not([href^="{{ site.url }}"]) {
       &:not([href^="{{ site.baseurl }}"]) {
         &:not([href^="#"]) {
-          &::before {
-            content: "\e908";
-            font-family: $font-icon;
+          &:not([href^="20"]) {
+            &::before {
+              content: "\e908";
+              font-family: $font-icon;
+            }
           }
         }
       }
@@ -899,7 +918,7 @@ a {
         content: "";
         display: inline-block;
         left: 0;
-        line-height: 1;
+        line-height: $line-height-icon;
         opacity: 0;
         position: absolute;
         right: 0;
@@ -934,7 +953,7 @@ a {
     color: $color-code-fore;
     font-size: 1rem;
     letter-spacing: 0;
-    line-height: 1.7;
+    line-height: $line-height-code;
     padding: 0.25rem 0.5rem;
   }
 
@@ -1054,7 +1073,7 @@ a {
     border-radius: 0.25rem;
     font-size: 1rem;
     letter-spacing: 0;
-    line-height: 1.0625;
+    line-height: $line-height-pre;
     max-height: 60rem;
     padding: 0.0rem 0.5rem 0.5rem 0.5rem;
     position: relative;
@@ -1075,7 +1094,7 @@ a {
 
     & > code {
       background-color: $color-code-back;
-      line-height: 1.0625;
+      line-height: $line-height-pre;
       padding: 0;
     }
   }
@@ -1123,22 +1142,13 @@ a {
 
   .footnote,
   .reversefootnote {
-    font-size: 0.75rem;
-    line-height: 1;
+    line-height: $line-height-icon;
+    margin: 0 0 0 0.25rem;
     vertical-align: super;
   }
 
   .footnote {
-    &::before {
-      content: none;
-    }
-  }
-
-  .reversefootnote {
-    &::before {
-      content: $icon-corner-down-left;
-      font-family: $font-icon;
-    }
+    font-size: 0.75rem;
   }
 
   .note {

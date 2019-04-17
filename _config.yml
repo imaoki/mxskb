@@ -29,14 +29,15 @@ markdown: kramdown
 kramdown:
   input: GFM
   hard_wrap: true
-  # footnote_backlink: ""
+  footnote_backlink: "&crarr;"
+  footnote_backlink_inline: true
   syntax_highlighter_opts:
     disable: true
-
 gfm_quirks: paragraph_end
 
 plugins:
   - jekyll-paginate
+  - jekyll-relative-links
   - jekyll-sitemap
 
 exclude:

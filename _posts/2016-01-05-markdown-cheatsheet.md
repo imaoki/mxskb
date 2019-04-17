@@ -8,6 +8,8 @@ tags:
 toc: true
 published: true
 ---
+[GFM](https://github.github.com/gfm/)と[kramdown](https://kramdown.gettalong.org/)に対応した記述のサンプル。
+
 ### ブロック要素
 {:#block-elements}
 
@@ -27,7 +29,7 @@ published: true
   ---------1---------2---------3---------4---------5---------6---------7---------8---------9---------0---------1---------2---------3---------4---------5---------6
   ```
 
-表示
+結果
 : <span/>{:.invisible}
 
   Loremのイプサムの嘆き、AMET consecteturのadipiscingのELIT、sedのtemporと活力、そのような労働と悲しみ、eiusmod行うにはいくつかの重要な事柄に座ります。長年にわたり、私は学区と長寿であればそのような刺激の取り組み、彼女のうち、運動の利点をaliquipをnostrudする人、来ます。
@@ -58,7 +60,7 @@ published: true
   ###### 見出し6
   ```
 
-表示
+結果
 : # 見出し1
   {:#header-level1}
 
@@ -121,7 +123,7 @@ published: true
   >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
   ```
 
-表示
+結果
 : >Loremのイプサムの嘆き、AMET consecteturのadipiscingのELIT、sedのtemporと活力、そのような労働と悲しみ、eiusmod行うにはいくつかの重要な事柄に座ります。長年にわたり、私は学区と長寿であればそのような刺激の取り組み、彼女のうち、運動の利点をaliquipをnostrudする人、来ます。
   >
   >>cupidatatのcillumの痛みになりたいDuisに批判されてきたらdoloreマグナ逃亡しても結果の喜びを生成しません。Excepteur cupidatatブラックはexcepteurていない、つまり、彼らはあなたの悩みに責任がある人の一般的な義務を捨て、魂を癒しています。
@@ -244,7 +246,7 @@ published: true
   * E
   ```
 
-表示
+結果
 : * A
 
   * B - start
@@ -388,7 +390,7 @@ published: true
     * B
   ```
 
-表示
+結果
 : 用語1
   : <span/>{:.invisible}
 
@@ -451,7 +453,7 @@ published: true
       ---------1---------2---------3---------4---------5---------6---------7---------8---------9---------0---------1---------2---------3---------4---------5---------6
   ```
 
-表示
+結果
 :     Loremのイプサムの嘆き、AMET consecteturのadipiscingのELIT、sedのtemporと活力、そのような労働と悲しみ、eiusmod行うにはいくつかの重要な事柄に座ります。長年にわたり、私は学区と長寿であればそのような刺激の取り組み、彼女のうち、運動の利点をaliquipをnostrudする人、来ます。
       cupidatatのcillumの痛みになりたいDuisに批判されてきたらdoloreマグナ逃亡しても結果の喜びを生成しません。Excepteur cupidatatブラックはexcepteurていない、つまり、彼らはあなたの悩みに責任がある人の一般的な義務を捨て、魂を癒しています。
 
@@ -501,7 +503,7 @@ published: true
   \```
   ```
 
-表示
+結果
 : ```maxscript
   global var -- Line Comment
 
@@ -546,7 +548,7 @@ published: true
   | 行2 | TD     | セル内の改行は<br>`<br>`タグを使う。 |     TD |
   ```
 
-表示
+結果
 : | -   | 左寄せ |               中央寄せ               | 右寄せ |
   | --- | :----- | :----------------------------------: | -----: |
   | 行1 | TD     |                  TD                  |     TD |
@@ -560,7 +562,7 @@ published: true
   ---
   ```
 
-表示
+結果
 : ---
 
 ### インライン要素
@@ -571,19 +573,6 @@ published: true
 
 記述
 : ```markdown
-  {{ site.url }}{{ site.baseurl }}/
-  [通常リンク]({{ site.url }}{{ site.baseurl }}/ "ツールチップA")
-  [参照リンク][ref]
-  [参照リンク（ID省略）][]
-  [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.][ref]
-
-  [ref]:{{ site.url }}{{ site.baseurl }}/ "ツールチップB"
-  [参照リンク（ID省略）]:{{ site.url }}{{ site.baseurl }}/ "ツールチップC"
-  [https://www.google.com/](https://www.google.com/)
-  ```
-
-表示
-: {{ site.url }}{{ site.baseurl }}/
   [通常リンク]({{ site.url }}{{ site.baseurl }}/ "ツールチップA")
   [参照リンク][ref]
   [参照リンク（ID省略）][]
@@ -591,7 +580,26 @@ published: true
 
   [ref]:{{ site.url }}{{ site.baseurl }}/ "ツールチップB"
   [参照リンク（ID省略）]:{{ site.url }}{{ site.baseurl }}/ "ツールチップC"
-  [https://www.google.com/](https://www.google.com/)
+
+  外部サイト[https://github.com/](https://github.com/)
+  自動リンク<{{ site.url }}{{ site.baseurl }}/>
+  相対リンク[highlight.js サンプル](2019-04-14-highlight-js-sample)
+  ```
+
+結果
+: <span/>{:.invisible}
+
+  [通常リンク]({{ site.url }}{{ site.baseurl }}/ "ツールチップA")
+  [参照リンク][ref]
+  [参照リンク（ID省略）][]
+  [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.][ref]
+
+  [ref]:{{ site.url }}{{ site.baseurl }}/ "ツールチップB"
+  [参照リンク（ID省略）]:{{ site.url }}{{ site.baseurl }}/ "ツールチップC"
+
+  外部サイト[https://github.com/](https://github.com/)
+  自動リンク<{{ site.url }}{{ site.baseurl }}/>
+  相対リンク[highlight.js サンプル](2019-04-14-highlight-js-sample)
 
 参照先の記述は前に一行空ける必要がある。
 {:.note}
@@ -602,18 +610,18 @@ published: true
 記述
 : ```markdown
   脚注1[^1]
-  脚注2[^2]
+  脚注2[^a]
 
   [^1]:脚注1
-  [^2]:脚注2
+  [^a]:脚注2
   ```
 
-表示
+結果
 : 脚注1[^1]
-  脚注2[^2]
+  脚注2[^a]
 
-[^1]:脚注1
-[^2]:脚注2
+  [^1]:脚注1
+  [^a]:脚注2
 
 #### 文字修飾
 {:#emphasis}
@@ -631,7 +639,7 @@ published: true
   ~~打ち消し線~~
   ```
 
-表示
+結果
 : *強調*
   _強調_
   **より強い強調**
@@ -669,7 +677,7 @@ published: true
     [参照画像（ID省略）]:{{ '/assets/favicon/small.jpg' | relative_url }} "ツールチップB"
   ```
 
-表示
+結果
 : 画像
   : <span/>{:.invisible}
 
@@ -709,7 +717,7 @@ published: true
   {:#block-element-id style="color: magenta;"}
   ```
 
-表示
+結果
 : ```html
   <p id="block-element-id" style="color: magenta;">ブロック要素</p>
   ```
@@ -726,7 +734,7 @@ published: true
   {:.note}
   ```
 
-表示
+結果
 : <span/>{:.invisible}
 
   ノート
@@ -741,7 +749,7 @@ published: true
   {:.warning}
   ```
 
-表示
+結果
 : <span/>{:.invisible}
 
   警告
@@ -755,7 +763,7 @@ published: true
   *インライン要素*{:#inline-element-id style="color: cyan;"}
   ```
 
-表示
+結果
 : ```html
   <em id="inline-element-id" style="color: cyan;">インライン要素</em>
   ```
@@ -770,7 +778,7 @@ published: true
   `<style>body {width: 500px;}</style>`{:.code .language-html}
   ```
 
-表示
+結果
 : <span/>{:.invisible}
 
   `<style>body {width: 500px;}</style>`{:.code .language-html}
