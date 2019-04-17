@@ -29,19 +29,16 @@ $icon-feed: "\e909";
 $icon-search: "\e90a";
 $icon-tag: "\e90b";
 
-$font-sans-serif: sans-serif;
-$font-sans-serif-italic: "游ゴシック Medium", YuGothic, YuGothicM, sans-serif;
-// $font-monospace: monospace, monospace;
-$font-monospace: 'Ricty Diminished Discord', Menlo, Consolas, Monaco, monospace, monospace, sans-serif;
-$font-icon: "icon";
 $font-external: "Rock Salt", cursive;
+$font-icon: "icon";
+$font-monospace: monospace, monospace;
+$font-sans-serif-italic: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+$font-sans-serif: sans-serif;
 
 $line-height-code: 1.7;
 $line-height-common: 1.7;
 $line-height-icon: 1;
-// $line-height-pre: 1.0625;
 $line-height-pre: 1.375;
-// $line-height-toc: 1.0625;
 $line-height-toc: 1.375;
 
 // =============================================================================
