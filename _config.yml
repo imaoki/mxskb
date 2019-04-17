@@ -11,10 +11,10 @@ baseurl: "/mxskb"
 
 excerpt_length: 40
 paginate_path: "/page:num"
-paginate: 4
+paginate: 10
 permalink: /:year-:month-:day-:title
 timezone: Asia/Tokyo
-unpublished: true
+unpublished: false
 use_minjs: true
 
 defaults:

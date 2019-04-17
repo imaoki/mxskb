@@ -9,6 +9,7 @@ layout: page
 {% endfor %}
 </ul>
 </section>
+{% if paginator.total_pages > 1 %}
 <section class="pagination wrapper">
 <ul class="hlist between">
 <li class="item">
@@ -40,3 +41,4 @@ layout: page
 </li>
 </ul>
 </section>
+{% endif %}
