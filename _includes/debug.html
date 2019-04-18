@@ -1,0 +1,8 @@
+{% assign path = include.path %}
+{% if site.debug.enabled %}
+<ul class="vlist debug">
+{% if site.debug.template_path %}
+<li class="item"><span class="template">{{ path }}</span></li>
+{% endif %}
+</ul>
+{% endif %}

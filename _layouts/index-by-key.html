@@ -2,7 +2,7 @@
 layout: page
 ---
 <section class="index wrapper">
-<h2 class="index title">{{ page[page.key.page] }}</h2>
+<h2 class="index title {{ page.key.page }}">{{ page[page.key.page] }}</h2>
 <ul class="vlist">
 {% for post in site.posts %}
 {% for category in post[page.key.post] %}
@@ -13,4 +13,4 @@ layout: page
 {% endfor %}
 </ul>
 </section>
-{% if site.show_template_path %}<span class="template">{{ site.baseurl }}/_layouts/index.html</span>{% endif %}
+{% include debug.html path="/_layouts/index-by-key.html" %}

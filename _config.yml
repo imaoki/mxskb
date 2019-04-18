@@ -4,20 +4,22 @@ description: MAXScript Knowledge Base
 author:
   name: imaoki
 
-copyright: 2015
+copyright: 2019
 
 url: https://imaoki.github.io
 baseurl: "/mxskb"
 
 excerpt_length: 40
 paginate_path: "/page:num"
-paginate: 4
+paginate: 10
 permalink: /:year-:month-:day-:title
 timezone: Asia/Tokyo
-unpublished: true
+unpublished: false
 use_minjs: true
 
-show_template_path: true
+debug:
+  enabled: false
+  template_path: true
 
 defaults:
   -
@@ -27,12 +29,15 @@ defaults:
     values:
       layout: "post"
 
+highlighter: none
+
 markdown: kramdown
 kramdown:
   input: GFM
   hard_wrap: true
   footnote_backlink: "&crarr;"
   footnote_backlink_inline: true
+  syntax_highlighter: none
   syntax_highlighter_opts:
     disable: true
 gfm_quirks: paragraph_end

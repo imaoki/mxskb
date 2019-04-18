@@ -48,25 +48,27 @@
   var init = function() {
     mxskb.addInitHandler(function() {
       if (window.hljs) {
-        hljs.configure({languages: []});
+        window.hljs.configure({languages: []});
+
         if (window.hljslang) {
-          hljs.registerLanguage("css", hljslang.css);
-          hljs.registerLanguage("diff", hljslang.diff);
-          hljs.registerLanguage("ebnf", hljslang.ebnf);
-          hljs.registerLanguage("javascript", hljslang.javascript);
-          hljs.registerLanguage("markdown", hljslang.markdown);
-          hljs.registerLanguage("maxscript", hljslang.maxscript);
-          hljs.registerLanguage("xml", hljslang.xml);
+          window.hljs.registerLanguage("css", window.hljslang.css);
+          window.hljs.registerLanguage("diff", window.hljslang.diff);
+          window.hljs.registerLanguage("ebnf", window.hljslang.ebnf);
+          window.hljs.registerLanguage("javascript", window.hljslang.javascript);
+          window.hljs.registerLanguage("markdown", window.hljslang.markdown);
+          window.hljs.registerLanguage("maxscript", window.hljslang.maxscript);
+          window.hljs.registerLanguage("xml", window.hljslang.xml);
         }
-        hljs.initHighlighting();
+
+        window.hljs.initHighlighting();
 
         mxskb.each(document.querySelectorAll("code[class^='code language-']"), function(el, i) {
-          hljs.highlightBlock(el);
+          window.hljs.highlightBlock(el);
         });
       }
 
-      if (SmoothScroll) {
-        new SmoothScroll("a[href*='#']", {
+      if (window.SmoothScroll) {
+        new window.SmoothScroll("a[href*='#']", {
           speed: 75,
           easing: "easeOutQuint"
         })
@@ -91,9 +93,6 @@
         }
       });
 
-      // mxskb.each(document.querySelectorAll("a[class*='reversefootnote'"), function(el, i) {
-      //   el.textContent = "";
-      // });
       mxskb.each(document.querySelectorAll("a[class*='reversefootnote'"), function(el, i) {
         var parentNode = el.parentNode;
         if (parentNode) {

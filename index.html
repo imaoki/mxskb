@@ -1,7 +1,7 @@
 ---
 layout: page
 ---
-<section class="index wrapper home">
+<section class="index wrapper">
 <h2 class="index title home">Resent</h2>
 <ul class="vlist">
 {% for post in paginator.posts %}
@@ -10,4 +10,4 @@ layout: page
 </ul>
 </section>
 {% include pagination.html %}
-{% if site.show_template_path %}<span class="template">{{ site.baseurl }}/index.html</span>{% endif %}
+{% include debug.html path="/index.html" %}

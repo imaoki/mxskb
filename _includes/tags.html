@@ -4,4 +4,4 @@
 {% assign tagPath = "/tags/" | append: tag %}
 <li class="item"><a class="static tag" href="{{ tagPath | relative_url }}">{{ tag }}</a></li>
 {% endfor %}
-{% if site.show_template_path %}<span class="template">{{ site.baseurl }}/_includes/tags.html</span>{% endif %}
+{% include debug.html path="/_includes/tags.html" %}

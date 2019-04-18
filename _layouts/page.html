@@ -6,7 +6,7 @@
 <h1 class="page title"><a class="static" href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
 <ul class="hlist page nav">
 {% include categories.html %}
-{% include tags.html %}
+{% comment %}{% include tags.html %}{% endcomment %}
 </ul>
 </header>
 <main class="page main">
@@ -19,6 +19,6 @@
 <li class="item"><a class="button icon feed" href="{{ '/atom.xml' | relative_url }}"></a></li>
 </ul>
 </footer>
-{% if site.show_template_path %}<span class="template">{{ site.baseurl }}/_layouts/page.html</span>{% endif %}
+{% include debug.html path="/_layouts/page.html" %}
 </body>
 </html>

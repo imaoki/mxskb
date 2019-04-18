@@ -8,7 +8,7 @@ layout: page
 {% if page.tags %}
 {% assign tags = page.tags | sort %}
 {% for tag in tags %}
-<li class="item"><a class="tag" href="{{ '/tags/' | append: tag | relative_url }}">{{ tag }}</a></li>
+<li class="item"><a class="icon tag" href="{{ '/tags/' | append: tag | relative_url }}">{{ tag }}</a></li>
 {% endfor %}
 {% endif %}
 {% if page.updated %}
@@ -24,3 +24,4 @@ layout: page
 {{ content }}
 </main>
 </article>
+{% include debug.html path="/_layouts/post.html" %}

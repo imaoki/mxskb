@@ -291,8 +291,8 @@ $color-toc-item-fore: $color-base-fore-dark;
 $color-content-back: brighten256($color-base-back, 8);
 $color-content-fore: brighten256($color-content-back, 32);
 
-$color-content-l1-back: setAlpha256(rgb(255, 255,255), 8);
-$color-content-l1-fore: setAlpha256(rgb(255, 255,255), 16);
+$color-content-l1-back: setAlpha256(rgb(255, 255,255), 16);
+$color-content-l1-fore: setAlpha256(rgb(255, 255,255), 32);
 
 $color-content-l1-back-light: setAlpha256(rgb(255, 255, 255), 64);
 $color-content-l1-back-dark: setAlpha256(rgb(0, 0, 0), 64);
@@ -333,6 +333,7 @@ $color-feed-fore-h: rgb(255, 255, 255);
 // =============================================================================
 
 * {
+  // scroll-behavior: smooth;
   background-clip: padding-box;
   box-sizing: border-box;
   font-family: inherit;
@@ -519,14 +520,24 @@ a {
 
 .index {
   &.title {
-    // display: none;
     padding: 0.25rem 0.5rem;
 
-    // &.tag {
-    //   &::before {
-    //     content: "/";
-    //   }
-    // }
+    &.home {
+      display: none;
+    }
+
+    &.category {
+      display: none;
+    }
+
+    &.tag {
+      &::before {
+        content: $icon-tag;
+        font-family: $font-icon;
+        line-height: $line-height-icon;
+        vertical-align: baseline;
+      }
+    }
   }
 }
 
@@ -649,43 +660,39 @@ a {
   }
 
   &.main {
-    flex: 1 0 auto;
-  }
-}
-
-.card.main {
-  align-items: flex-start;
-  display: flex;
-  flex-flow: row wrap;
-  flex: 0 0 auto;
-  justify-content: flex-start;
-  margin: -1rem;
-  padding: 0.5rem;
-
-  ul {
-    align-items: stretch;
-    background-color: $color-content-back;
-    border-radius: 0.5rem;
+    align-items: flex-start;
     display: flex;
-    flex-flow: column nowrap;
-    flex: 1 1 auto;
-    margin: 0.5rem;
-    padding: 1rem;
+    flex-flow: row wrap;
+    flex: 0 0 auto;
+    justify-content: flex-start;
+    margin: -1rem;
+    padding: 0.5rem;
 
-    li {
-      align-items: center;
+    ul:not([class*="debug"]) {
+      align-items: stretch;
+      background-color: $color-content-back;
+      border-radius: 0.5rem;
       display: flex;
-      flex-flow: row wrap;
-      flex: 1 0 auto;
-      justify-content: space-between;
-      margin: 0.5rem 0 0 0;
+      flex-flow: column nowrap;
+      flex: 1 1 auto;
+      margin: 0.5rem;
+      padding: 1rem;
 
-      &:first-child {
-        align-self: center;
-        margin: 0;
+      li {
+        align-items: center;
+        display: flex;
+        flex-flow: row wrap;
+        flex: 1 0 auto;
+        justify-content: space-between;
+        margin: 0.5rem 0 0 0;
 
-        span {
-          font-size: 2rem;
+        &:first-child {
+          align-self: center;
+          margin: 0;
+
+          span {
+            font-size: 2rem;
+          }
         }
       }
     }
@@ -784,12 +791,19 @@ a {
   }
 }
 
-.template {
+.debug {
+  color: $color-base-fore-dark;
   font-size: 0.5rem;
 
-  &::before {
-    content: "template:";
-    margin: 0 0.25rem 0 0;
+  & > .item {
+    margin: 0;
+  }
+
+  .template {
+    &::before {
+      content: "template:";
+      margin: 0 0.25rem 0 0;
+    }
   }
 }
 
