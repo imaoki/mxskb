@@ -2,9 +2,8 @@
 title: Customizations
 date: 2016-09-20 16:25:06 +0900
 updated:
-description: Few customizations available out of the box!
-tags:
-  - jekyll
+categories: jekyll
+tags: jekyll
 toc: false
 published: false
 ---

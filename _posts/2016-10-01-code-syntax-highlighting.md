@@ -2,9 +2,8 @@
 title: Code snippets
 date: 2016-10-01 16:25:06 +0900
 updated:
-description: Sample post showing how code samples would look like
-tags:
-  - jekyll
+categories: jekyll
+tags: jekyll
 toc: false
 published: false
 ---

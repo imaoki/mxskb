@@ -2,10 +2,8 @@
 title: Installation
 date: 2015-11-01 16:25:06 +0900
 updated:
-description: Here you'll find out how to install this theme
-tags:
-  - jekyll-clean-dark
-  - test
+categories: test
+tags: jekyll-clean-dark
 toc: false
 published: false
 ---

@@ -1,0 +1,7 @@
+{% capture siteTags %}{% for tag in site.tags %}{{ tag | first | downcase }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
+{% assign sortedTags = siteTags | split: "," | sort %}
+{% for tag in sortedTags %}
+{% assign tagPath = "/tags/" | append: tag %}
+<li class="item"><a class="static tag" href="{{ tagPath | relative_url }}">{{ tag }}</a></li>
+{% endfor %}
+{% if site.show_template_path %}<span class="template">{{ site.baseurl }}/_includes/tags.html</span>{% endif %}

@@ -1,0 +1,29 @@
+{% if paginator.total_pages > 1 %}
+<section class="pagination wrapper">
+<ul class="hlist between">
+<li class="item">
+{% if paginator.previous_page %}<a class="pagination newer" href="{{ site.baseurl }}{{ paginator.previous_page_path }}">Newer</a>{% else %}<span class="pagination newer">Newer</span>{% endif %}
+</li>
+<li class="item">
+<ul class="hlist">
+{% for page in (1..paginator.total_pages) %}
+{% if page == paginator.page %}
+<li class="item"><span class="pagination number">{{ page }}</span></li>
+{% elsif page == 1 %}
+<li class="item"><a class="pagination number" href="{{ site.baseurl }}/">{{ page }}</a></li>
+{% else %}
+<li class="item"><a class="pagination number" href="{{ site.baseurl }}{{ site.paginate_path | replace: ':num', page }}">{{ page }}</a></li>
+{% endif %}
+{% endfor %}
+</ul>
+</li>
+<li class="item">
+{% if paginator.next_page %}
+<a class="pagination older" href="{{ site.baseurl }}{{ paginator.next_page_path }}">Older</a>
+{% else %}
+<span class="pagination older">Older</span>
+{% endif %}
+</li>
+</ul>
+</section>
+{% endif %}

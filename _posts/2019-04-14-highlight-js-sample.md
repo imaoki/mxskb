@@ -2,9 +2,8 @@
 title: highlight.js サンプル
 date: 2019-04-14 16:57:00 +0900
 updated:
-description:
-tags:
-  - test
+categories: test
+tags: javascript markdown
 toc: true
 published: true
 ---

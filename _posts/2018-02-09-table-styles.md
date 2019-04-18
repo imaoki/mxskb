@@ -2,7 +2,7 @@
 title: Table styles
 date: 2018-02-09 11:07:00 +0900
 updated:
-description: Examples of different table styles
+categories:
 tags:
 toc: false
 published: false

@@ -2,7 +2,7 @@
 title: Table of content
 date: 2018-08-03 11:07:00 +0900
 updated:
-description: For some big articles you can use table on content
+categories:
 tags:
 toc: true
 published: false

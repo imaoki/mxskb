@@ -2,10 +2,8 @@
 title: Jekyll Dark Clean Theme
 date: 2016-12-01 16:25:06 +0900
 updated:
-description: Here I want to introduce you the dark theme for Jekyll.
-tags:
-  - jekyll
-  - test
+categories: test
+tags: jekyll
 toc: false
 published: false
 ---

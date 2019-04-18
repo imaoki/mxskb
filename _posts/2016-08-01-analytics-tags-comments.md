@@ -2,10 +2,8 @@
 title: Analytics, tags and comments
 date: 2016-08-01 16:25:06 +0900
 updated:
-description: Here you'll find how to setup analytics, tags and comments for your blog
-tags:
-  - jekyll-clean-dark
-  - test
+categories: test
+tags: jekyll-clean-dark
 toc: false
 published: false
 ---

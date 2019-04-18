@@ -5,11 +5,8 @@
 <header class="page header">
 <h1 class="page title"><a class="static" href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
 <ul class="hlist page nav">
-{% capture site_tags %}{% for tag in site.tags %}{{ tag | first | downcase }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
-{% assign tag_words = site_tags | split: ',' | sort %}
-{% for tag in tag_words %}
-<li class="item"><a class="static tag" href="{{ '/tags/' | append: tag | relative_url }}">{{ tag }}</a></li>
-{% endfor %}
+{% include categories.html %}
+{% include tags.html %}
 </ul>
 </header>
 <main class="page main">
@@ -22,5 +19,6 @@
 <li class="item"><a class="button icon feed" href="{{ '/atom.xml' | relative_url }}"></a></li>
 </ul>
 </footer>
+{% if site.show_template_path %}<span class="template">{{ site.baseurl }}/_layouts/page.html</span>{% endif %}
 </body>
 </html>

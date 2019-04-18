@@ -1,0 +1,13 @@
+{% capture siteCategories %}{% for category in site.categories %}{{ category | first | downcase }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
+{% assign sortedCategories = siteCategories | split: "," | sort %}
+{% for category in sortedCategories %}
+{% assign categoryPath = "/categories/" | append: category %}
+<li class="item">
+{% if page.url == categoryPath %}
+<span class="static category active">{{ category }}</span>
+{% else %}
+<a class="static category" href="{{ categoryPath | relative_url }}">{{ category }}</a>
+{% endif %}
+</li>
+{% endfor %}
+{% if site.show_template_path %}<span class="template">{{ site.baseurl }}/_includes/categories.html</span>{% endif %}

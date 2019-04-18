@@ -2,9 +2,8 @@
 title: Text formatting
 date: 2016-11-02 16:25:06 +0900
 updated:
-description: Text formatting examples.
-tags:
-  - jekyll
+categories: test
+tags: jekyll
 toc: false
 published: false
 ---
