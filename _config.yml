@@ -29,7 +29,7 @@ defaults:
     values:
       layout: "post"
 
-highlighter: none
+# highlighter: none
 
 markdown: kramdown
 kramdown:
@@ -37,7 +37,7 @@ kramdown:
   hard_wrap: true
   footnote_backlink: "&crarr;"
   footnote_backlink_inline: true
-  syntax_highlighter: none
+  # syntax_highlighter: none
   syntax_highlighter_opts:
     disable: true
 gfm_quirks: paragraph_end
