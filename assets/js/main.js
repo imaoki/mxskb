@@ -1,4 +1,4 @@
-/*! © 2015 imaoki | MIT License | https://github.com/imaoki */
+/*! © 2019 imaoki | MIT License | https://github.com/imaoki */
 (function (root, factory) {
   if (typeof define === "function" && define.amd) {
     define([], (function () {
@@ -99,6 +99,15 @@
           parentNode.innerHTML = parentNode.innerHTML.replace("&nbsp;", "");
         }
       });
+
+      if (window.PhotoSwipe && window.photoswipeSimplify) {
+        window.photoswipeSimplify.init({
+          bgOpacity: 0.9,
+          history: false,
+          shareEl: false,
+          zoomEl: true
+        });
+      }
     });
 
     document.addEventListener("DOMContentLoaded", function() {

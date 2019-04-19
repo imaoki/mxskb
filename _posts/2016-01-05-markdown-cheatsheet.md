@@ -1,7 +1,7 @@
 ---
 title: Markdown チートシート
 date: 2016-01-05 21:32:00 +0900
-updated: 2019-04-11 09:02:00 +0900
+updated: 2019-04-20 00:44:00 +0900
 categories: document
 tags: markdown
 toc: true
@@ -657,14 +657,14 @@ published: true
   画像
   : <span/>{:.invisible}
 
-    相対アドレス![代替文字]({{ '/assets/favicon/small.jpg' | relative_url }} "ツールチップ")
+    相対アドレス![代替文字]({{ '/assets/images/sample/32x32.png' | relative_url }} "ツールチップ")
 
   リンク
   : <span/>{:.invisible}
 
-    相対アドレス[![代替文字]({{ '/assets/favicon/small.jpg' | relative_url }} "ツールチップ")]({{ '/assets/favicon/small.jpg' | relative_url }})
-    絶対アドレス[![代替文字]({{ site.url | append: site.baseurl | append: '/assets/favicon/small.jpg' }} "ツールチップ")]({{ site.url | append: site.baseurl | append: '/assets/favicon/small.jpg' }})
-    外部サイト[![代替文字]({{ '/assets/favicon/small.jpg' | relative_url }} "ツールチップ")](https://github.com/)
+    相対アドレス[![代替文字]({{ '/assets/images/sample/64x64.png' | relative_url }} "ツールチップ")]({{ '/assets/images/sample/64x64.png' | relative_url }})
+    絶対アドレス[![代替文字]({{ site.url | append: site.baseurl | append: '/assets/images/sample/128x128.png' }} "ツールチップ")]({{ site.url | append: site.baseurl | append: '/assets/images/sample/128x128.png' }})
+    外部サイト[![代替文字]({{ '/assets/images/sample/128x128.png' | relative_url }} "ツールチップ")](https://github.com/)
 
   参照画像
   : <span/>{:.invisible}
@@ -672,22 +672,29 @@ published: true
     ID指定![参照画像][img]
     ID省略![参照画像（ID省略）][]
 
-    [img]:{{ '/assets/favicon/small.jpg' | relative_url }} "ツールチップA"
-    [参照画像（ID省略）]:{{ '/assets/favicon/small.jpg' | relative_url }} "ツールチップB"
+    [img]:{{ '/assets/images/sample/128x128.png' | relative_url }} "ツールチップA"
+    [参照画像（ID省略）]:{{ '/assets/images/sample/128x128.png' | relative_url }} "ツールチップB"
+
+  高解像度
+  : <span/>{:.invisible}
+
+    [![512x512]({{ '/assets/images/sample/512x512t.png' | relative_url }})]({{ '/assets/images/sample/512x512.png' | relative_url }})
+    [![1024x1024]({{ '/assets/images/sample/1024x1024t.png' | relative_url }})]({{ '/assets/images/sample/1024x1024.png' | relative_url }})
+    [![2048x2048]({{ '/assets/images/sample/2048x2048t.png' | relative_url }})]({{ '/assets/images/sample/2048x2048.png' | relative_url }})
   ```
 
 結果
 : 画像
   : <span/>{:.invisible}
 
-    相対アドレス![代替文字]({{ '/assets/favicon/small.jpg' | relative_url }} "ツールチップ")
+    相対アドレス![代替文字]({{ '/assets/images/sample/32x32.png' | relative_url }} "ツールチップ")
 
   リンク
   : <span/>{:.invisible}
 
-    相対アドレス[![代替文字]({{ '/assets/favicon/small.jpg' | relative_url }} "ツールチップ")]({{ '/assets/favicon/small.jpg' | relative_url }})
-    絶対アドレス[![代替文字]({{ site.url | append: site.baseurl | append: '/assets/favicon/small.jpg' }} "ツールチップ")]({{ site.url | append: site.baseurl | append: '/assets/favicon/small.jpg' }})
-    外部サイト[![代替文字]({{ '/assets/favicon/small.jpg' | relative_url }} "ツールチップ")](https://github.com/)
+    相対アドレス[![代替文字]({{ '/assets/images/sample/64x64.png' | relative_url }} "ツールチップ")]({{ '/assets/images/sample/64x64.png' | relative_url }})
+    絶対アドレス[![代替文字]({{ site.url | append: site.baseurl | append: '/assets/images/sample/128x128.png' }} "ツールチップ")]({{ site.url | append: site.baseurl | append: '/assets/images/sample/128x128.png' }})
+    外部サイト[![代替文字]({{ '/assets/images/sample/128x128.png' | relative_url }} "ツールチップ")](https://github.com/)
 
   参照画像
   : <span/>{:.invisible}
@@ -695,14 +702,22 @@ published: true
     ID指定![参照画像][img]
     ID省略![参照画像（ID省略）][]
 
-    [img]:{{ '/assets/favicon/small.jpg' | relative_url }} "ツールチップA"
-    [参照画像（ID省略）]:{{ '/assets/favicon/small.jpg' | relative_url }} "ツールチップB"
+    [img]:{{ '/assets/images/sample/128x128.png' | relative_url }} "ツールチップA"
+    [参照画像（ID省略）]:{{ '/assets/images/sample/128x128.png' | relative_url }} "ツールチップB"
 
-<!-- ### インラインフレーム
+  高解像度
+  : <span/>{:.invisible}
+
+    [![512x512]({{ '/assets/images/sample/512x512t.png' | relative_url }})]({{ '/assets/images/sample/512x512.png' | relative_url }})
+    [![1024x1024]({{ '/assets/images/sample/1024x1024t.png' | relative_url }})]({{ '/assets/images/sample/1024x1024.png' | relative_url }})
+    [![2048x2048]({{ '/assets/images/sample/2048x2048t.png' | relative_url }})]({{ '/assets/images/sample/2048x2048.png' | relative_url }})
+
+<!--
+### インラインフレーム
 {:#iframes}
 
-<iframe class="iframe-class" src="https://github.com/imaoki/imaoki.github.io" width="520" height="293"></iframe> -->
-
+<iframe class="iframe-class" src="https://github.com/imaoki/imaoki.github.io" width="520" height="293"></iframe>
+-->
 
 ### kramdown
 {:#kramdown}

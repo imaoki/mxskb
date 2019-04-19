@@ -1,5 +1,5 @@
 /*! highlight.js v9.15.6 | BSD3 License | git.io/hljslicense */
-/*! © 2015 imaoki | MIT License | https://github.com/imaoki */
+/*! © 2019 imaoki | MIT License | https://github.com/imaoki */
 /*
 hljs.registerLanguage("css", );
 hljs.registerLanguage("diff", );
