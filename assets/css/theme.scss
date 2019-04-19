@@ -165,25 +165,34 @@ $line-height-toc: 1.375;
 
 @mixin block-child-margin($margin-normal: 1rem, $margin-header: 5rem) {
   & > * {
-    margin: $margin-normal 0;
+    // margin: $margin-normal 0;
+    margin-bottom: $margin-normal;
+    margin-top: $margin-normal;
 
     &:first-child {
-      margin: 0 0 $margin-normal 0;
+      // margin: 0 0 $margin-normal 0;
+      margin-bottom: $margin-normal;
 
       &[class*="invisible"] + * {
-        margin: 0 0 $margin-normal 0;
+        // margin: 0 0 $margin-normal 0;
+        margin-bottom: $margin-normal;
 
         &:last-child {
-          margin: 0;
+          // margin: 0;
+          margin-bottom: 0;
+          margin-top: 0;
         }
       }
     }
 
     &:last-child {
-      margin: $margin-normal 0 0 0;
+      // margin: $margin-normal 0 0 0;
+      margin-top: $margin-normal;
 
       &:first-child {
-        margin: 0;
+        // margin: 0;
+        margin-bottom: 0;
+        margin-top: 0;
       }
     }
   }
