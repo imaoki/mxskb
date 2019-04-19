@@ -1,55 +1,65 @@
 ---
 title: MAXScript スタイルガイド
 date: 2017-04-17 23:28:00 +0900
-updated: 2019-04-18 01:46:00 +0900
+updated: 2019-04-19 00:32:00 +0900
 categories: document
 tags: maxscript
 toc: true
 published: true
 ---
 ### 言語
+{:#language}
 
 #### 禁止
+{:#language-prohibited}
 
 * セミコロン
   構文規則が曖昧なので無しで統一する。
 
 * 永続グローバル変数
-  値をシーンに保存する場合はカスタムアトリビュートを使用する。
+  シーンに値を保存する場合はカスタムアトリビュートを使用する。
 
-* `break`、`continue`、`exit`、および`return`式
+* `break`{:.code .language-maxscript}、`continue`{:.code .language-maxscript}、`exit`{:.code .language-maxscript}、および`return`{:.code .language-maxscript}式
   低速なので使用しないこと。
 
 #### 変数の可視性
+{:#language-variable-visibility}
 
 全ての変数および構造体メンバは可視性を明示する。
 
 #### エラー処理
+{:#language-error-handling}
 
 複雑なエラー処理を実装するとかえってバグを発見しづらくなるため、可能な限りMAXScriptに委ねる。
 
-##### `try`式
+##### try式
+{:#language-error-try-expression}
 
 プラグインのバグ等、自力で回避できない場合にのみ使用する。
 
-##### `throw`関数
+##### throw関数
+{:#language-error-throw-function}
 
-MAXScriptの仕様上は許されるが制限をかけたい場合等、限定的な利用に留める。
+言語仕様上は許されるが制限をかけたい場合等、限定的な利用に留める。
 
-#### `fileIn`関数
+#### fileIn関数
+{:#language-filein-function}
 
 ##### グローバル変数の定義
+{:#language-filein-global-variable-difinition}
 
 外部スクリプトファイルを評価することでグローバル変数を定義する場合、スコープの問題を考慮しなければならない。
 以下の成功例の中から状況に応じた方法を選択し実装する。
 
-`SampleGlobalDecl.ms`
+SampleGlobalDecl.ms
 : ```maxscript
   global sample = 0
   ```
 
 失敗
-: 同一のローカルスコープ内で`fileIn`関数を単独で呼び出し、その後グローバル変数を直接参照する。
+: <span/>{:.invisible}
+
+  同一のローカルスコープ内で`fileIn`{:.code .language-maxscript}関数を単独で呼び出し、その後グローバル変数を直接参照する。
   初回実行時にエラーが出るのでこの形式による実装は行わないこと。
 
   コード
@@ -72,7 +82,9 @@ MAXScriptの仕様上は許されるが制限をかけたい場合等、限定�
     ```
 
 成功1
-: スクリプト冒頭のグローバルスコープで評価する。
+: <span/>{:.invisible}
+
+  スクリプト冒頭のグローバルスコープで評価する。
 
   コード
   : ```maxscript
@@ -92,7 +104,9 @@ MAXScriptの仕様上は許されるが制限をかけたい場合等、限定�
     ```
 
 成功2
-: `::`演算子を用いて明示的にグローバル変数を参照する。
+: <span/>{:.invisible}
+
+  `::`{:.code .language-maxscript}演算子を用いて明示的にグローバル変数を参照する。
 
   コード
   : ```maxscript
@@ -111,7 +125,7 @@ MAXScriptの仕様上は許されるが制限をかけたい場合等、限定�
     sample:0
     ```
 
-    一度`::`演算子で参照すると、それ以降は変数が可視化される。
+    一度`::`{:.code .language-maxscript}演算子で参照すると、それ以降は変数が可視化される。
 
     コード
     : ```maxscript
@@ -130,7 +144,9 @@ MAXScriptの仕様上は許されるが制限をかけたい場合等、限定�
       ```
 
 成功3
-: `GlobalVars`構造体を利用して参照する。
+: <span/>{:.invisible}
+
+  `GlobalVars`{:.code .language-maxscript}構造体を利用して参照する。
 
   コード
   : ```maxscript
@@ -149,19 +165,22 @@ MAXScriptの仕様上は許されるが制限をかけたい場合等、限定�
     sample:undefined
     ```
 
-    `GlobalVars`経由では可視化されない。
+    `GlobalVars`{:.code .language-maxscript}経由では可視化されない。
 
 ##### 戻り値の代入
+{:#language-filein-assignment-of-return-value}
 
-`fileIn`関数の戻り値は通常の関数とは異なるようなので、以下の成功例を基に適宜対策を講じる。
+`fileIn`{:.code .language-maxscript}関数の戻り値は通常の関数とは異なるようなので、以下の成功例を基に適宜対策を講じる。
 
-`SampleInteger.ms`
+SampleInteger.ms
 : ```maxscript
   0
   ```
 
 失敗
-: 直接代入すると関数や演算子を利用した際にエラーが出る。
+: <span/>{:.invisible}
+
+  直接代入すると関数や演算子を利用した際にエラーが出る。
 
   コード
   : ```maxscript
@@ -186,10 +205,14 @@ MAXScriptの仕様上は許されるが制限をかけたい場合等、限定�
     ```
 
 成功1
-: 評価ファイルのコードをブロック式で囲む。
+: <span/>{:.invisible}
 
-  `SampleIntegerBlock.ms`
-  : `SampleInteger.ms`の内容をブロック式で囲んだもの。
+  評価ファイルのコードをブロック式で囲む。
+
+  SampleIntegerBlock.ms
+  : <span/>{:.invisible}
+
+    SampleInteger.msの内容をブロック式で囲んだもの。
 
     ```maxscript
     (0)
@@ -212,7 +235,9 @@ MAXScriptの仕様上は許されるが制限をかけたい場合等、限定�
     ```
 
 成功2（推奨）
-: 関数を中継して`fileIn`関数を実行する。
+: <span/>{:.invisible}
+
+  関数を中継して`fileIn`{:.code .language-maxscript}関数を実行する。
 
   コード
   : ```maxscript
@@ -233,24 +258,28 @@ MAXScriptの仕様上は許されるが制限をかけたい場合等、限定�
     var:0
     ```
 
-##### 直接代入の定義毎の可不可
+##### 直接代入の定義毎の可否
+{:#language-filein-whether-direct-assignment-per-definition-is-possible}
 
 | 種類                       | 直接代入 |
 | -------------------------- | -------- |
-| カスタムアトリビュート定義 | 不可     |
+| カスタムアトリビュート定義 | 否       |
 | ロールアウト定義           | 可       |
 | 構造体定義                 | 可       |
 
-#### 構造体
+<!-- #### 構造体
+{:#language-struct}
 
 構造体インスタンスをコピーする際は`mxs.CopyStruct`メソッドを使用する。
-詳細は[構造体インスタンスのコピー修正版](https://imaoki.blogspot.jp/2017/03/maxscript-copy-struct-instance.html)を参照。
+詳細は[構造体インスタンスのコピー修正版](https://imaoki.blogspot.jp/2017/03/maxscript-copy-struct-instance.html)を参照。 -->
 
 #### べき乗
+{:#language-exponentiation}
 
-べき乗は`pow`関数ではなく`^`演算子を使用する。
+べき乗は`pow`{:.code .language-maxscript}関数ではなく`^`{:.code .language-maxscript}演算子を使用する。
 
 ##### 計測
+{:#language-exponentiation-measurement}
 
 コード
 : ```maxscript
@@ -295,23 +324,34 @@ MAXScriptの仕様上は許されるが制限をかけたい場合等、限定�
   ```
 
 #### 関数の戻り値
+{:#language-function-return-value}
 
 配列要素の追加・削除やファイルの作成・削除において真偽値を返す関数
-: 動作の成否ではなく結果の成否を返す。
+: <span/>{:.invisible}
+
+  動作の成否ではなく結果の成否を返す。
 
   追加・作成
-  : 成功もしくは既に存在する場合は`true`、失敗した場合は`false`。
+  : <span/>{:.invisible}
+
+    成功もしくは既に存在する場合は`true`{:.code .language-maxscript}、失敗した場合は`false`{:.code .language-maxscript}。
 
   削除
-  : 成功もしくは存在しなかった場合は`true`、失敗した場合は`false`。
+  : <span/>{:.invisible}
+
+    成功もしくは存在しなかった場合は`true`{:.code .language-maxscript}、失敗した場合は`false`{:.code .language-maxscript}。
 
 配列インデックスを返す関数
-: `findItem`関数に合わせる。
-  存在する場合はその要素のインデックス、存在しない場合は`0`。
+: <span/>{:.invisible}
+
+  `findItem`{:.code .language-maxscript}関数に合わせる。
+  存在する場合はその要素のインデックス、存在しない場合は`0`{:.code .language-maxscript}。
 
 ### 名前
+{:#name}
 
 #### 原則
+{:#name-basis}
 
 * パスカル形式またはキャメル形式を使用する。
 
@@ -327,6 +367,7 @@ MAXScriptの仕様上は許されるが制限をかけたい場合等、限定�
   Web関連のファイル等、慣例的にチェイン形式が利用されているものは除く。
 
 #### 略語
+{:#name-abbreviation-and-acronym}
 
 * 2文字以内は全て大文字で記述する。
 
@@ -338,6 +379,7 @@ MAXScriptの仕様上は許されるが制限をかけたい場合等、限定�
 | `HTML`       | `HtmlParser` | `htmlParser` |
 
 #### ファイル名
+{:#name-filename}
 
 | 種類             | 形式       |
 | ---------------- | ---------- |
@@ -346,108 +388,119 @@ MAXScriptの仕様上は許されるが制限をかけたい場合等、限定�
 | その他のファイル | camelCase  |
 
 #### 識別子
+{:#name-identifier}
 
-| 種類                        | 基本形式      | 備考                             |
-| --------------------------- | ------------- | -------------------------------- |
-| `attributes`定義名          | `PascalCase`  |                                  |
-| `macroscript`定義名         | `PascalCase`  |                                  |
-| `parameters`定義名          | `PascalCase`  |                                  |
-| `plugin`定義名              | `PascalCase`  |                                  |
-| `rcmenu`定義名              | `PascalCase`  | 構造体定義と同様の扱い           |
-| `rollout`定義名             | `PascalCase`  | 構造体定義と同様の扱い           |
-| `struct`の`private`メンバ名 | `camelCase`   |                                  |
-| `struct`の`public`メンバ名  | `PascalCase`  |                                  |
-| `struct`定義名              | `PascalCase`  |                                  |
-| `tool`定義名                | `PascalCase`  |                                  |
-| UIコントロール変数名        | `PascalCase`  | 構造体`public`メンバと同様の扱い |
-| イベントハンドラ名          | `PascalCase`  | 構造体`public`メンバと同様の扱い |
-| インタフェース              | `PascalCase`  |                                  |
-| 関数名                      | `camelCase`   |                                  |
-| 記号パス名                  | `$PascalCase` |                                  |
-| 定数                        | `PascalCase`  |                                  |
-| 変数名                      | `camelCase`   |                                  |
-| 名前値リテラル              | `#PascalCase` |                                  |
-| 予約キーワード              | `camelCase`   |                                  |
+| 種類                                                                                | 基本形式                                  | 備考                                                         |
+| ----------------------------------------------------------------------------------- | ----------------------------------------- | ------------------------------------------------------------ |
+| `attributes`{:.code .language-maxscript}定義名                                      | `PascalCase`{:.code .language-maxscript}  |                                                              |
+| `macroscript`{:.code .language-maxscript}定義名                                     | `PascalCase`{:.code .language-maxscript}  |                                                              |
+| `parameters`{:.code .language-maxscript}定義名                                      | `PascalCase`{:.code .language-maxscript}  |                                                              |
+| `plugin`{:.code .language-maxscript}定義名                                          | `PascalCase`{:.code .language-maxscript}  |                                                              |
+| `rcmenu`{:.code .language-maxscript}定義名                                          | `PascalCase`{:.code .language-maxscript}  | 構造体定義と同様の扱い                                       |
+| `rollout`{:.code .language-maxscript}定義名                                         | `PascalCase`{:.code .language-maxscript}  | 構造体定義と同様の扱い                                       |
+| `struct`{:.code .language-maxscript}の`private`{:.code .language-maxscript}メンバ名 | `camelCase`{:.code .language-maxscript}   |                                                              |
+| `struct`{:.code .language-maxscript}の`public`{:.code .language-maxscript}メンバ名  | `PascalCase`{:.code .language-maxscript}  |                                                              |
+| `struct`{:.code .language-maxscript}定義名                                          | `PascalCase`{:.code .language-maxscript}  |                                                              |
+| `tool`{:.code .language-maxscript}定義名                                            | `PascalCase`{:.code .language-maxscript}  |                                                              |
+| UIコントロール変数名                                                                | `PascalCase`{:.code .language-maxscript}  | 構造体`public`{:.code .language-maxscript}メンバと同様の扱い |
+| イベントハンドラ名                                                                  | `PascalCase`{:.code .language-maxscript}  | 構造体`public`{:.code .language-maxscript}メンバと同様の扱い |
+| インタフェース                                                                      | `PascalCase`{:.code .language-maxscript}  |                                                              |
+| 関数名                                                                              | `camelCase`{:.code .language-maxscript}   |                                                              |
+| 記号パス名                                                                          | `$PascalCase`{:.code .language-maxscript} |                                                              |
+| 定数                                                                                | `PascalCase`{:.code .language-maxscript}  |                                                              |
+| 変数名                                                                              | `camelCase`{:.code .language-maxscript}   |                                                              |
+| 名前値リテラル                                                                      | `#PascalCase`{:.code .language-maxscript} |                                                              |
+| 予約キーワード                                                                      | `camelCase`{:.code .language-maxscript}   |                                                              |
 
 #### UIコントロールの変数名
+{:#name-ui-control-variable-name}
 
 UIコントロールの変数名の先頭には以下に定めた識別子を使用する。
 
 ##### 標準コントロール
+{:#name-ui-control-standard}
 
-| 種類             | 型                    | 識別子  |
-| ---------------- | --------------------- | ------- |
-| `angle`          | `AngleControl`        | `Ang`   |
-| `bitmap`         | `BitmapControl`       | `Bmp`   |
-| `button`         | `ButtonControl`       | `Btn`   |
-| `checkBox`       | `CheckBoxControl`     | `Ckbx`  |
-| `checkButton`    | `CheckButtonControl`  | `Ckbtn` |
-| `colorPicker`    | `ColorPickerControl`  | `Cpk`   |
-| `comboBox`       | `ComboBoxControl`     | `Cbx`   |
-| `curveControl`   | `MaxCurveCtl`         | `Cc`    |
-| `dropDownList`   | `ComboBoxControl`     | `Ddl`   |
-| `editText`       | `EditTextControl`     | `Edt`   |
-| `groupBox`       | `GroupBoxControl`     | `Gbx`   |
-| `hyperLink`      | `LinkControl`         | `Hlk`   |
-| `imgTag`         | `ImgTag`              | `Itg`   |
-| `label`          | `LabelControl`        | `Lbl`   |
-| `listBox`        | `ListBoxControl`      | `Lbx`   |
-| `mapButton`      | `MapButtonControl`    | `Mpbtn` |
-| `materialButton` | `MtlButtonControl`    | `Mtbtn` |
-| `multiListBox`   | `MultiListBoxControl` | `Mlbx`  |
-| `pickButton`     | `PickerControl`       | `Pkbtn` |
-| `progressBar`    | `ProgressBar`         | `Pbr`   |
-| `radioButtons`   | `RadioControl`        | `Rdbtn` |
-| `rollout`        | `RolloutClass`        | `Rlt`   |
-| `slider`         | `SliderControl`       | `Sld`   |
-| `spinner`        | `SpinnerControl`      | `Spn`   |
-| `subRollout`     | `SubRollout`          | `Srlt`  |
-| `timer`          | `Timer`               | `Tmr`   |
+| 種類                                         | 型                                                | 識別子                              |
+| -------------------------------------------- | ------------------------------------------------- | ----------------------------------- |
+| `angle`{:.code .language-maxscript}          | `AngleControl`{:.code .language-maxscript}        | `Ang`{:.code .language-maxscript}   |
+| `bitmap`{:.code .language-maxscript}         | `BitmapControl`{:.code .language-maxscript}       | `Bmp`{:.code .language-maxscript}   |
+| `button`{:.code .language-maxscript}         | `ButtonControl`{:.code .language-maxscript}       | `Btn`{:.code .language-maxscript}   |
+| `checkBox`{:.code .language-maxscript}       | `CheckBoxControl`{:.code .language-maxscript}     | `Ckbx`{:.code .language-maxscript}  |
+| `checkButton`{:.code .language-maxscript}    | `CheckButtonControl`{:.code .language-maxscript}  | `Ckbtn`{:.code .language-maxscript} |
+| `colorPicker`{:.code .language-maxscript}    | `ColorPickerControl`{:.code .language-maxscript}  | `Cpk`{:.code .language-maxscript}   |
+| `comboBox`{:.code .language-maxscript}       | `ComboBoxControl`{:.code .language-maxscript}     | `Cbx`{:.code .language-maxscript}   |
+| `curveControl`{:.code .language-maxscript}   | `MaxCurveCtl`{:.code .language-maxscript}         | `Cc`{:.code .language-maxscript}    |
+| `dropDownList`{:.code .language-maxscript}   | `ComboBoxControl`{:.code .language-maxscript}     | `Ddl`{:.code .language-maxscript}   |
+| `editText`{:.code .language-maxscript}       | `EditTextControl`{:.code .language-maxscript}     | `Edt`{:.code .language-maxscript}   |
+| `groupBox`{:.code .language-maxscript}       | `GroupBoxControl`{:.code .language-maxscript}     | `Gbx`{:.code .language-maxscript}   |
+| `hyperLink`{:.code .language-maxscript}      | `LinkControl`{:.code .language-maxscript}         | `Hlk`{:.code .language-maxscript}   |
+| `imgTag`{:.code .language-maxscript}         | `ImgTag`{:.code .language-maxscript}              | `Itg`{:.code .language-maxscript}   |
+| `label`{:.code .language-maxscript}          | `LabelControl`{:.code .language-maxscript}        | `Lbl`{:.code .language-maxscript}   |
+| `listBox`{:.code .language-maxscript}        | `ListBoxControl`{:.code .language-maxscript}      | `Lbx`{:.code .language-maxscript}   |
+| `mapButton`{:.code .language-maxscript}      | `MapButtonControl`{:.code .language-maxscript}    | `Mpbtn`{:.code .language-maxscript} |
+| `materialButton`{:.code .language-maxscript} | `MtlButtonControl`{:.code .language-maxscript}    | `Mtbtn`{:.code .language-maxscript} |
+| `multiListBox`{:.code .language-maxscript}   | `MultiListBoxControl`{:.code .language-maxscript} | `Mlbx`{:.code .language-maxscript}  |
+| `pickButton`{:.code .language-maxscript}     | `PickerControl`{:.code .language-maxscript}       | `Pkbtn`{:.code .language-maxscript} |
+| `progressBar`{:.code .language-maxscript}    | `ProgressBar`{:.code .language-maxscript}         | `Pbr`{:.code .language-maxscript}   |
+| `radioButtons`{:.code .language-maxscript}   | `RadioControl`{:.code .language-maxscript}        | `Rdbtn`{:.code .language-maxscript} |
+| `rollout`{:.code .language-maxscript}        | `RolloutClass`{:.code .language-maxscript}        | `Rlt`{:.code .language-maxscript}   |
+| `slider`{:.code .language-maxscript}         | `SliderControl`{:.code .language-maxscript}       | `Sld`{:.code .language-maxscript}   |
+| `spinner`{:.code .language-maxscript}        | `SpinnerControl`{:.code .language-maxscript}      | `Spn`{:.code .language-maxscript}   |
+| `subRollout`{:.code .language-maxscript}     | `SubRollout`{:.code .language-maxscript}          | `Srlt`{:.code .language-maxscript}  |
+| `timer`{:.code .language-maxscript}          | `Timer`{:.code .language-maxscript}               | `Tmr`{:.code .language-maxscript}   |
 
 ##### RCMenu
+{:#name-ui-control-rcmenu}
 
-| 種類        | 型       | 識別子 |
-| ----------- | -------- | ------ |
-| `rcMenu`    | `RCMenu` | `Mnu`  |
-| `menuItem`  | `Value`  | `Mi`   |
-| `separator` | `Value`  | `Sep`  |
-| `subMenu`   |          |        |
+| 種類                                    | 型                                   | 識別子                            |
+| --------------------------------------- | ------------------------------------ | --------------------------------- |
+| `rcMenu`{:.code .language-maxscript}    | `RCMenu`{:.code .language-maxscript} | `Mnu`{:.code .language-maxscript} |
+| `menuItem`{:.code .language-maxscript}  | `Value`{:.code .language-maxscript}  | `Mi`{:.code .language-maxscript}  |
+| `separator`{:.code .language-maxscript} | `Value`{:.code .language-maxscript}  | `Sep`{:.code .language-maxscript} |
+| `subMenu`{:.code .language-maxscript}   |                                      |                                   |
 
 ##### .NETコントロール
+{:#name-ui-control-dotnet}
 
-| 種類                                                                 | 識別子 |
-| -------------------------------------------------------------------- | ------ |
-| [`System.Windows.Forms.ListView`][System.Windows.Forms.ListView]     | `Lvw`  |
-| [`System.Windows.Forms.Splitter`][System.Windows.Forms.Splitter]     | `Spl`  |
-| [`System.Windows.Forms.StatusBar`][System.Windows.Forms.StatusBar]   | `Sbr`  |
-| [`System.Windows.Forms.TabControl`][System.Windows.Forms.TabControl] | `Tab`  |
-| [`System.Windows.Forms.TreeView`][System.Windows.Forms.TreeView]     | `Tvw`  |
-| [`System.Windows.Forms.WebBrowser`][System.Windows.Forms.WebBrowser] | `Wb`   |
+| 種類                                                                                             | 識別子                            |
+| ------------------------------------------------------------------------------------------------ | --------------------------------- |
+| [`System.Windows.Forms.ListView`{:.code .language-maxscript}][System.Windows.Forms.ListView]     | `Lvw`{:.code .language-maxscript} |
+| [`System.Windows.Forms.Splitter`{:.code .language-maxscript}][System.Windows.Forms.Splitter]     | `Spl`{:.code .language-maxscript} |
+| [`System.Windows.Forms.StatusBar`{:.code .language-maxscript}][System.Windows.Forms.StatusBar]   | `Sbr`{:.code .language-maxscript} |
+| [`System.Windows.Forms.TabControl`{:.code .language-maxscript}][System.Windows.Forms.TabControl] | `Tab`{:.code .language-maxscript} |
+| [`System.Windows.Forms.TreeView`{:.code .language-maxscript}][System.Windows.Forms.TreeView]     | `Tvw`{:.code .language-maxscript} |
+| [`System.Windows.Forms.WebBrowser`{:.code .language-maxscript}][System.Windows.Forms.WebBrowser] | `Wb`{:.code .language-maxscript}  |
 
-[System.Windows.Forms.ListView]:https://msdn.microsoft.com/ja-jp/library/system.windows.forms.listview.aspx
-[System.Windows.Forms.Splitter]:https://msdn.microsoft.com/ja-jp/library/system.windows.forms.splitter.aspx
-[System.Windows.Forms.StatusBar]:https://msdn.microsoft.com/ja-jp/library/system.windows.forms.statusbar.aspx
-[System.Windows.Forms.TabControl]:https://msdn.microsoft.com/ja-jp/library/system.windows.forms.tabcontrol.aspx
-[System.Windows.Forms.TreeView]:https://msdn.microsoft.com/ja-jp/library/system.windows.forms.treeview.aspx
-[System.Windows.Forms.WebBrowser]:https://msdn.microsoft.com/ja-jp/library/system.windows.forms.webbrowser.aspx
+[System.Windows.Forms.ListView]:https://docs.microsoft.com/ja-jp/dotnet/api/system.windows.forms.listview
+[System.Windows.Forms.Splitter]:https://docs.microsoft.com/ja-jp/dotnet/api/system.windows.forms.splitter
+[System.Windows.Forms.StatusBar]:https://docs.microsoft.com/ja-jp/dotnet/api/system.windows.forms.statusbar
+[System.Windows.Forms.TabControl]:https://docs.microsoft.com/ja-jp/dotnet/api/system.windows.forms.tabcontrol
+[System.Windows.Forms.TreeView]:https://docs.microsoft.com/ja-jp/dotnet/api/system.windows.forms.treeview
+[System.Windows.Forms.WebBrowser]:https://docs.microsoft.com/ja-jp/dotnet/api/system.windows.forms.webbrowser
 
-<!-- ###### 複合コントロール
+<!--
+###### 複合コントロール
+{:#name-ui-control-compound}
 
-| 種類                   | 識別子   |
-| ---------------------- | -------- |
-| `dropDownMenu`         | `Ddm`    |
-| `dropDownMenuButton`   | `Ddmbtn` |
-| `dropDownMenuEditText` | `Ddmedt` | -->
+| 種類                                               | 識別子                               |
+| -------------------------------------------------- | ------------------------------------ |
+| `dropDownMenu`{:.code .language-maxscript}         | `Ddm`{:.code .language-maxscript}    |
+| `dropDownMenuButton`{:.code .language-maxscript}   | `Ddmbtn`{:.code .language-maxscript} |
+| `dropDownMenuEditText`{:.code .language-maxscript} | `Ddmedt`{:.code .language-maxscript} |
+-->
 
 ### スタイル
+{:#style}
 
 #### 全般
+{:#style-general}
 
 * 1行の文字数は80桁以内に収まるよう努める。
 
 * インデントは半角スペースを2つ使用する。
 
 #### 継続行
+{:#style-continuation-line}
 
 * 継続行は半角スペース4つのぶら下げインデントを行う。
 
@@ -500,6 +553,7 @@ UIコントロールの変数名の先頭には以下に定めた識別子を使
   ```
 
 #### 空白
+{:#style-whitespace}
 
 演算子の前後
 : * 前後とも入れる
@@ -509,14 +563,14 @@ UIコントロールの変数名の先頭には以下に定めた識別子を使
     foo and bar
     ```
 
-`:`の前後
+`:`{:.code .language-maxscript}の前後
 : * 前には入れない
 
     ```maxscript
     varname:
     ```
 
-  * `case`式のラベルの後には入れる
+  * `case`{:.code .language-maxscript}式のラベルの後には入れる
 
     ```maxscript
     case of (
@@ -543,7 +597,7 @@ UIコントロールの変数名の先頭には以下に定めた識別子を使
     foo[1]
     ```
 
-`,`の前後
+`,`{:.code .language-maxscript}の前後
 : * 前には入れない
 
     ```maxscript
@@ -567,16 +621,19 @@ UIコントロールの変数名の先頭には以下に定めた識別子を使
     ```
 
 #### 比較式
+{:#style-comparison-expression}
 
-##### 2値比較
+##### 原則
+{:#style-comparison-expression-basis}
 
-2つの値の単純な比較はテスト値を前に、期待値を後に記述する。
+原則としてテスト値を前に、期待値を後に記述する。
 
 ```maxscript
 currentTime == 0
 ```
 
 ##### 範囲判定
+{:#style-comparison-expression-range}
 
 値が範囲内、または範囲外かどうかをテストする場合は視覚的に分かりやすい順序で記述する。
 
@@ -591,8 +648,10 @@ currentTime == 0
   ```
 
 #### ブロック式
+{:#style-block-expression}
 
 ##### 字下げスタイル
+{:#style-block-expression-indentation}
 
 * 部分式であるブロック式は、直前のトークンと同じ行で開始する。（[K&Rスタイル](https://ja.wikipedia.org/wiki/%E5%AD%97%E4%B8%8B%E3%81%92%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%AB#K.26R.E3.81.AE.E3.82.B9.E3.82.BF.E3.82.A4.E3.83.AB)）
 
@@ -610,6 +669,7 @@ currentTime == 0
   ```
 
 ##### ブロック式の省略
+{:#style-block-expression-omit}
 
 * ぶら下がり文によるブロック式の省略は行わないこと。
 
@@ -640,18 +700,21 @@ currentTime == 0
   ```
 
 #### コンテキスト式
+{:#style-context-expression}
 
-* ブール値の指定には`true`または`false`を使用する。
-  `on`を使用するとテキストエディタの構文ハイライトが正しく機能しない場合があるため。
+* ブール値の指定には`true`{:.code .language-maxscript}または`false`{:.code .language-maxscript}を使用する。
+  `on`{:.code .language-maxscript}を使用するとテキストエディタの構文ハイライトが正しく機能しない場合があるため。
 
 #### Case式
+{:#style-case-expression}
 
-* 必ず`default`ラベルを定義する。
+* 必ず`default`{:.code .language-maxscript}ラベルを定義する。
 
-* `default`以外のラベルは必ずブロック式にする。
+* `default`{:.code .language-maxscript}以外のラベルは必ずブロック式にする。
   リテラルのみだとエラーになる場合があるため。
 
 #### 定義構文
+{:#style-definition-syntax}
 
 構造体、カスタムアトリビュート、ロールアウト等の定義構文は制御文や関数定義と同様にキャメル形式で記述する。
 
@@ -676,21 +739,22 @@ macroScript Macro buttonText:"Macro" (
 ```
 
 #### 構造体メンバの宣言順序
+{:#style-declarative-order-of-structure-members}
 
 1.  プロパティ
 
-    1.  `public`
+    1.  `public`{:.code .language-maxscript}
 
-    2.  `private`
+    2.  `private`{:.code .language-maxscript}
 
 2.  メソッド
 
-    1.  `public`
+    1.  `public`{:.code .language-maxscript}
 
-    2.  `private`
+    2.  `private`{:.code .language-maxscript}
 
-3.  `OnClone`メソッド
-    `public`関数ではあるがイベントハンドラに近い扱いなのでこの位置に記述する。
+3.  `OnClone`{:.code .language-maxscript}メソッド
+    `public`{:.code .language-maxscript}関数ではあるがイベントハンドラに近い扱いなのでこの位置に記述する。
 
      ```maxscript
      public fn OnClone obj = (
@@ -702,16 +766,18 @@ macroScript Macro buttonText:"Macro" (
 
 4. イベントハンドラ
 
-#### `assert`関数
+#### assert関数
+{:#style-assert-function}
 
 比較式同様にテスト値を前に、期待値を後に記述する。
-`assert_equal`等、他の`assert_*`関数とは逆の順序だが、`actual is expected`の形式の方が分かりやすいためこのように統一する。
+`assert_equal`{:.code .language-maxscript}等、他の`assert_*`{:.code .language-maxscript}関数とは逆の順序だが、`actual is expected`の形式の方が分かりやすいためこのように統一する。
 
 ```maxscript
 assert (actual == expected)
 ```
 
 #### コメント
+{:#style-comment}
 
 * コメントの記号とテキストの間には半角スペースを1つ入れる。
 
@@ -742,10 +808,12 @@ assert (actual == expected)
   ```
 
 #### ドキュメンテーションコメント
+{:#style-documentation-comment}
 
-詳細は[MxsLibドキュメンテーションの仕様](https://imaoki.blogspot.jp/2017/02/specification-of-mxslib-documentation.html)を参照。
+詳細は[MAXScript ドキュメンテーションコメント](2017-02-27-specification-of-documentation-comment)を参照。
 
 ##### 文体
+{:#style-documentation-comment-style}
 
 * 普通体で記述する。
 
@@ -753,10 +821,10 @@ assert (actual == expected)
   ただし、テーブル内の項目や値には付けない。
   テーブル内でも文章の場合には付ける。
 
-* `BooleanClass`の変数、パラメータ、戻り値等の説明は以下の形式で記述する。
+* `BooleanClass`{:.code .language-maxscript}の変数、パラメータ、戻り値等の説明は以下の形式で記述する。
 
   ```markdown
-  ○○の場合は`true`、○○の場合は`false`。
+  ○○の場合は`true`{:.code .language-maxscript}、○○の場合は`false`{:.code .language-maxscript}。
   ```
 
 * 既定値は文章の最後に記述する。
@@ -766,12 +834,16 @@ assert (actual == expected)
   ```
 
 ### 開発環境
+{:#developing-environment}
 
 #### 3ds Maxの設定
+{:#developing-environment-3dsmax-settings}
 
 Preference Settings
 : Files
-  : File String Data Handling
+  : <span/>{:.invisible}
+
+    File String Data Handling
 
     | 項目                                              | 状態       |
     | ------------------------------------------------- | ---------- |
@@ -779,6 +851,7 @@ Preference Settings
     | Default Language                                  | `Japanese` |
 
 #### 外部テキストエディタの設定
+{:#developing-environment-external-text-editor-settings}
 
 | 項目                 | 設定          |
 | -------------------- | ------------- |
@@ -788,6 +861,7 @@ Preference Settings
 | インデント           | 半角スペース  |
 
 #### SciTEの設定
+{:#developing-environment-scite-settings}
 
 maxscript.properties
 : ```diff
@@ -903,6 +977,6 @@ MXS_Editor.properties
   -#user.context.menu=\
   -#||\
   +user.context.menu=\
-  +||\
-  +UTF-8|IDM_ENCODING_UCOOKIE|
+  | +      |                      | \ |
+  | +UTF-8 | IDM_ENCODING_UCOOKIE |   |
   ```

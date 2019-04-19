@@ -6,7 +6,12 @@
 // Const
 // =============================================================================
 
-$header-mark: "/";
+$header-font-size-base: 0.5rem;
+$header-font-size-offset: 0.5rem;
+$header-level-start: 3;
+$header-margin-offset: 1rem;
+$header-mark-end: ".";
+$header-mark-start: "#";
 
 $offset-hover-back: 16;
 $offset-hover-fore: 64;
@@ -58,10 +63,10 @@ $line-height-toc: 1.375;
   @return rgba($source, ($alpha / 256.0));
 }
 
-@function generateHeaderMark($level) {
+@function generateHeaderMark($level, $mark) {
   $content: "";
   @for $i from 1 through $level {
-    $content: $content + $header-mark;
+    $content: $content + $mark;
   }
   @return $content;
 }
@@ -184,43 +189,57 @@ $line-height-toc: 1.375;
   }
 
   & > h1, h2, h3, h4, h5, h6 {
-    margin: $margin-header 0 $margin-normal 0;
+    // margin: $margin-header 0 $margin-normal 0;
+    margin-bottom: $margin-normal;
+    margin-top: $margin-header;
 
     &:first-child {
-      margin: 0 0 $margin-normal 0;
+      // margin: 0 0 $margin-normal 0;
+      margin-bottom: $margin-normal;
 
       &[class*="invisible"] + * {
-        margin: 0 0 $margin-normal 0;
+        // margin: 0 0 $margin-normal 0;
+        margin-bottom: $margin-normal;
 
         &:last-child {
-          margin: 0;
+          // margin: 0;
+          margin-bottom: 0;
+          margin-top: 0;
         }
       }
     }
 
     &:last-child {
-      margin: $margin-header 0 0 0;
+      // margin: $margin-header 0 0 0;
+      margin-top: $margin-header;
 
       &:first-child {
-        margin: 0;
+        // margin: 0;
+        margin-bottom: 0;
+        margin-top: 0;
       }
     }
   }
 }
 
 @mixin post-content-header($level, $color) {
+  $header-level: $level - $header-level-start + 1;
   $mark-font-family: $font-external;
-  $mark-font-size: 1rem + 0.5rem * (6 - $level);
+  $mark-font-size: $header-font-size-base + $header-font-size-offset * (6 - $header-level);
+  $mark-margin-side: $header-margin-offset * ($header-level - 1);
 
   background-color: $color;
   border-radius: 0.25rem;
-  padding: (0.5rem * (6 - $level)) 1rem;
+  margin-left: $mark-margin-side;
+  margin-right: $mark-margin-side;
+  padding: (0.5rem * (6 - $header-level)) 1rem;
   position: relative;
   text-align: center;
 
   &::before {
+    // content: toString($header-level);
     color: $color-h-mark-fore;
-    content: toString($level);
+    content: generateHeaderMark($header-level, $header-mark-start);
     font-family: $mark-font-family;
     font-size: $mark-font-size;
     left: 0.25rem;
@@ -233,7 +252,7 @@ $line-height-toc: 1.375;
   &::after {
     bottom: 0.25rem;
     color: $color-h-mark-fore;
-    content: generateHeaderMark($level);
+    content: generateHeaderMark($header-level, $header-mark-end);
     font-family: $mark-font-family;
     font-size: $mark-font-size;
     line-height: $line-height-icon;
@@ -839,6 +858,10 @@ a {
     max-width: 70%;
     overflow: scroll;
     width: auto;
+
+    li {
+      visibility: visible;
+    }
   }
 
   &::before {
@@ -848,7 +871,10 @@ a {
     font-family: $font-icon;
     font-size: 1.5rem;
     line-height: $line-height-icon;
-    margin: 0.25rem 0.25rem 0.75rem 0.25rem;
+    padding: 0.25rem;
+    position: fixed;
+    right: 1rem;
+    top: 1rem;
   }
 
   &::-webkit-scrollbar {
@@ -864,10 +890,7 @@ a {
   li {
     display: block;
     flex: 0 0 auto;
-
-    &::before {
-      display: none;
-    }
+    visibility: hidden;
 
     & > a {
       border-radius: 0.25rem;
@@ -884,6 +907,10 @@ a {
   }
 
   & > li {
+    &:first-child {
+      margin: 2.5rem 0 0 0;
+    }
+
     // level1
     & > a {padding-left: 0.25rem;}
 
@@ -927,6 +954,7 @@ a {
         &:not([href^="#"]) {
           &:not([href^="20"]) {
             &::before {
+              color: $color-base-fore-dark;
               content: "\e908";
               font-family: $font-icon;
             }
