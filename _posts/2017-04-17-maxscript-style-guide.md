@@ -1,7 +1,7 @@
 ---
 title: MAXScript スタイルガイド
 date: 2017-04-17 23:28:00 +0900
-updated: 2019-04-19 00:32:00 +0900
+updated: 2019-08-04 05:35:00 +0900
 categories: document
 tags: maxscript
 toc: true
@@ -420,34 +420,34 @@ UIコントロールの変数名の先頭には以下に定めた識別子を使
 ##### 標準コントロール
 {:#name-ui-control-standard}
 
-| 種類                                         | 型                                                | 識別子                              |
-| -------------------------------------------- | ------------------------------------------------- | ----------------------------------- |
-| `angle`{:.code .language-maxscript}          | `AngleControl`{:.code .language-maxscript}        | `Ang`{:.code .language-maxscript}   |
-| `bitmap`{:.code .language-maxscript}         | `BitmapControl`{:.code .language-maxscript}       | `Bmp`{:.code .language-maxscript}   |
-| `button`{:.code .language-maxscript}         | `ButtonControl`{:.code .language-maxscript}       | `Btn`{:.code .language-maxscript}   |
-| `checkBox`{:.code .language-maxscript}       | `CheckBoxControl`{:.code .language-maxscript}     | `Ckbx`{:.code .language-maxscript}  |
-| `checkButton`{:.code .language-maxscript}    | `CheckButtonControl`{:.code .language-maxscript}  | `Ckbtn`{:.code .language-maxscript} |
-| `colorPicker`{:.code .language-maxscript}    | `ColorPickerControl`{:.code .language-maxscript}  | `Cpk`{:.code .language-maxscript}   |
-| `comboBox`{:.code .language-maxscript}       | `ComboBoxControl`{:.code .language-maxscript}     | `Cbx`{:.code .language-maxscript}   |
-| `curveControl`{:.code .language-maxscript}   | `MaxCurveCtl`{:.code .language-maxscript}         | `Cc`{:.code .language-maxscript}    |
-| `dropDownList`{:.code .language-maxscript}   | `ComboBoxControl`{:.code .language-maxscript}     | `Ddl`{:.code .language-maxscript}   |
-| `editText`{:.code .language-maxscript}       | `EditTextControl`{:.code .language-maxscript}     | `Edt`{:.code .language-maxscript}   |
-| `groupBox`{:.code .language-maxscript}       | `GroupBoxControl`{:.code .language-maxscript}     | `Gbx`{:.code .language-maxscript}   |
-| `hyperLink`{:.code .language-maxscript}      | `LinkControl`{:.code .language-maxscript}         | `Hlk`{:.code .language-maxscript}   |
-| `imgTag`{:.code .language-maxscript}         | `ImgTag`{:.code .language-maxscript}              | `Itg`{:.code .language-maxscript}   |
-| `label`{:.code .language-maxscript}          | `LabelControl`{:.code .language-maxscript}        | `Lbl`{:.code .language-maxscript}   |
-| `listBox`{:.code .language-maxscript}        | `ListBoxControl`{:.code .language-maxscript}      | `Lbx`{:.code .language-maxscript}   |
-| `mapButton`{:.code .language-maxscript}      | `MapButtonControl`{:.code .language-maxscript}    | `Mpbtn`{:.code .language-maxscript} |
-| `materialButton`{:.code .language-maxscript} | `MtlButtonControl`{:.code .language-maxscript}    | `Mtbtn`{:.code .language-maxscript} |
-| `multiListBox`{:.code .language-maxscript}   | `MultiListBoxControl`{:.code .language-maxscript} | `Mlbx`{:.code .language-maxscript}  |
-| `pickButton`{:.code .language-maxscript}     | `PickerControl`{:.code .language-maxscript}       | `Pkbtn`{:.code .language-maxscript} |
-| `progressBar`{:.code .language-maxscript}    | `ProgressBar`{:.code .language-maxscript}         | `Pbr`{:.code .language-maxscript}   |
-| `radioButtons`{:.code .language-maxscript}   | `RadioControl`{:.code .language-maxscript}        | `Rdbtn`{:.code .language-maxscript} |
-| `rollout`{:.code .language-maxscript}        | `RolloutClass`{:.code .language-maxscript}        | `Rlt`{:.code .language-maxscript}   |
-| `slider`{:.code .language-maxscript}         | `SliderControl`{:.code .language-maxscript}       | `Sld`{:.code .language-maxscript}   |
-| `spinner`{:.code .language-maxscript}        | `SpinnerControl`{:.code .language-maxscript}      | `Spn`{:.code .language-maxscript}   |
-| `subRollout`{:.code .language-maxscript}     | `SubRollout`{:.code .language-maxscript}          | `Srlt`{:.code .language-maxscript}  |
-| `timer`{:.code .language-maxscript}          | `Timer`{:.code .language-maxscript}               | `Tmr`{:.code .language-maxscript}   |
+| 種類                                         | 型                                                      | 識別子                              |
+| -------------------------------------------- | ------------------------------------------------------- | ----------------------------------- |
+| `angle`{:.code .language-maxscript}          | `AngleControl`{:.code .language-maxscript}              | `Ang`{:.code .language-maxscript}   |
+| `bitmap`{:.code .language-maxscript}         | `BitmapControl`{:.code .language-maxscript}             | `Bmp`{:.code .language-maxscript}   |
+| `button`{:.code .language-maxscript}         | `ButtonControl`{:.code .language-maxscript}             | `Btn`{:.code .language-maxscript}   |
+| `checkBox`{:.code .language-maxscript}       | `CheckBoxControl`{:.code .language-maxscript}           | `Ckbx`{:.code .language-maxscript}  |
+| `checkButton`{:.code .language-maxscript}    | `CheckButtonControl`{:.code .language-maxscript}        | `Ckbtn`{:.code .language-maxscript} |
+| `colorPicker`{:.code .language-maxscript}    | `ColorPickerControl`{:.code .language-maxscript}        | `Cpk`{:.code .language-maxscript}   |
+| `comboBox`{:.code .language-maxscript}       | `ComboBoxControl`{:.code .language-maxscript}           | `Cbx`{:.code .language-maxscript}   |
+| `curveControl`{:.code .language-maxscript}   | `MaxCurveCtl`{:.code .language-maxscript}               | `Cc`{:.code .language-maxscript}    |
+| `dropDownList`{:.code .language-maxscript}   | `ComboBoxControl`{:.code .language-maxscript}（バグ？） | `Ddl`{:.code .language-maxscript}   |
+| `editText`{:.code .language-maxscript}       | `EditTextControl`{:.code .language-maxscript}           | `Edt`{:.code .language-maxscript}   |
+| `groupBox`{:.code .language-maxscript}       | `GroupBoxControl`{:.code .language-maxscript}           | `Gbx`{:.code .language-maxscript}   |
+| `hyperLink`{:.code .language-maxscript}      | `LinkControl`{:.code .language-maxscript}               | `Hlk`{:.code .language-maxscript}   |
+| `imgTag`{:.code .language-maxscript}         | `ImgTag`{:.code .language-maxscript}                    | `Itg`{:.code .language-maxscript}   |
+| `label`{:.code .language-maxscript}          | `LabelControl`{:.code .language-maxscript}              | `Lbl`{:.code .language-maxscript}   |
+| `listBox`{:.code .language-maxscript}        | `ListBoxControl`{:.code .language-maxscript}            | `Lbx`{:.code .language-maxscript}   |
+| `mapButton`{:.code .language-maxscript}      | `MapButtonControl`{:.code .language-maxscript}          | `Mpbtn`{:.code .language-maxscript} |
+| `materialButton`{:.code .language-maxscript} | `MtlButtonControl`{:.code .language-maxscript}          | `Mtbtn`{:.code .language-maxscript} |
+| `multiListBox`{:.code .language-maxscript}   | `MultiListBoxControl`{:.code .language-maxscript}       | `Mlbx`{:.code .language-maxscript}  |
+| `pickButton`{:.code .language-maxscript}     | `PickerControl`{:.code .language-maxscript}             | `Pkbtn`{:.code .language-maxscript} |
+| `progressBar`{:.code .language-maxscript}    | `ProgressBar`{:.code .language-maxscript}               | `Pbr`{:.code .language-maxscript}   |
+| `radioButtons`{:.code .language-maxscript}   | `RadioControl`{:.code .language-maxscript}              | `Rdbtn`{:.code .language-maxscript} |
+| `rollout`{:.code .language-maxscript}        | `RolloutClass`{:.code .language-maxscript}              | `Rlt`{:.code .language-maxscript}   |
+| `slider`{:.code .language-maxscript}         | `SliderControl`{:.code .language-maxscript}             | `Sld`{:.code .language-maxscript}   |
+| `spinner`{:.code .language-maxscript}        | `SpinnerControl`{:.code .language-maxscript}            | `Spn`{:.code .language-maxscript}   |
+| `subRollout`{:.code .language-maxscript}     | `SubRollout`{:.code .language-maxscript}                | `Srlt`{:.code .language-maxscript}  |
+| `timer`{:.code .language-maxscript}          | `Timer`{:.code .language-maxscript}                     | `Tmr`{:.code .language-maxscript}   |
 
 ##### RCMenu
 {:#name-ui-control-rcmenu}

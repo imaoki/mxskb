@@ -172,6 +172,7 @@ $line-height-toc: 1.375;
     &:first-child {
       // margin: 0 0 $margin-normal 0;
       margin-bottom: $margin-normal;
+      margin-top: $margin-normal;
 
       &[class*="invisible"] + * {
         // margin: 0 0 $margin-normal 0;
