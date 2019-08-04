@@ -1,7 +1,7 @@
 ---
 title: MAXScript スタイルガイド
 date: 2017-04-17 23:28:00 +0900
-updated: 2019-08-04 05:35:00 +0900
+updated: 2019-08-05 06:17:00 +0900
 categories: document
 tags: maxscript
 toc: true
@@ -823,14 +823,18 @@ assert (actual == expected)
 
 * `BooleanClass`{:.code .language-maxscript}の変数、パラメータ、戻り値等の説明は以下の形式で記述する。
 
-  ```markdown
-  ○○の場合は`true`{:.code .language-maxscript}、○○の場合は`false`{:.code .language-maxscript}。
+  ```maxscript
+  /**
+  ○○の場合は`true`、○○の場合は`false`。
+  */
   ```
 
 * 既定値は文章の最後に記述する。
 
-  ```markdown
+  ```maxscript
+  /**
   ○○の値。既定値は○○。
+  */
   ```
 
 ### 開発環境
