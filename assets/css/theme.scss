@@ -10,7 +10,7 @@ $header-font-size-base: 0.5rem;
 $header-font-size-offset: 0.5rem;
 $header-level-start: 3;
 $header-margin-offset: 1rem;
-$header-mark-end: ".";
+$header-mark-end: "/";
 $header-mark-start: "#";
 
 $offset-hover-back: 16;
@@ -259,17 +259,17 @@ $line-height-toc: 1.375;
     top: 0.25rem;
   }
 
-  &::after {
-    bottom: 0.25rem;
-    color: $color-h-mark-fore;
-    content: generateHeaderMark($header-level, $header-mark-end);
-    font-family: $mark-font-family;
-    font-size: $mark-font-size;
-    line-height: $line-height-icon;
-    margin: auto 0;
-    position: absolute;
-    right: 0.25rem;
-  }
+  // &::after {
+  //   bottom: 0.25rem;
+  //   color: $color-h-mark-fore;
+  //   content: generateHeaderMark($header-level, $header-mark-end);
+  //   font-family: $mark-font-family;
+  //   font-size: $mark-font-size;
+  //   line-height: $line-height-icon;
+  //   margin: auto 0;
+  //   position: absolute;
+  //   right: 0.25rem;
+  // }
 }
 
 // =============================================================================
