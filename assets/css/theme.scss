@@ -229,10 +229,19 @@ $line-height-toc: 1.375;
         margin-top: 0;
       }
     }
+
+    & + h1,
+    & + h2,
+    & + h3,
+    & + h4,
+    & + h5,
+    & + h6 {
+      margin-top: $margin-normal !important;
+    }
   }
 }
 
-@mixin post-content-header($level, $color) {
+@mixin post-content-header($level, $color, $margin-normal: 1rem) {
   $header-level: $level - $header-level-start + 1;
   $mark-font-family: $font-external;
   $mark-font-size: $header-font-size-base + $header-font-size-offset * (6 - $header-level);
@@ -269,6 +278,15 @@ $line-height-toc: 1.375;
   //   margin: auto 0;
   //   position: absolute;
   //   right: 0.25rem;
+  // }
+
+  // & + h1,
+  // & + h2,
+  // & + h3,
+  // & + h4,
+  // & + h5,
+  // & + h6 {
+  //   margin-top: $margin-normal;
   // }
 }
 
