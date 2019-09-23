@@ -1,7 +1,7 @@
 ---
 title: Blenderノート
 date: 2019-08-08 04:09:00 +0900
-updated: 2019-09-22 00:55:00 +0900
+updated: 2019-09-23 20:49:00 +0900
 categories: note
 tags: blender
 toc: true
@@ -19,6 +19,11 @@ Blender 2.8用。随時更新。
 Display
 : | 項目            | 設定   |
   | Python Tooltips | `True` |
+
+Text Rendering
+: | 項目            | 設定                                                  |
+  | Interface Font  | `C:\Windows\Fonts\meiryo.ttc`                         |
+  | Mono-space Font | `C:\Windows\Fonts\RictyDiminishedDiscord-Regular.ttf` |
 
 #### Animation
 {:#preferences-animation}
