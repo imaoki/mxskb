@@ -1,7 +1,7 @@
 ---
 title: MAXScript スタイルガイド
 date: 2017-04-17 23:28:00 +0900
-updated: 2019-08-05 06:17:00 +0900
+updated: 2019-09-24 07:18:00 +0900
 categories: document
 tags: maxscript
 toc: true
@@ -373,44 +373,44 @@ SampleInteger.ms
 
 * 3文字以上の略語はパスカル形式またはキャメル形式にする。
 
-| 一般的な表記 | パスカル形式 | キャメル形式 |
-| ------------ | ------------ | ------------ |
-| `UI`         | `UIControl`  | `uiControl`  |
-| `HTML`       | `HtmlParser` | `htmlParser` |
+| 一般的な表記 | パスカル形式  | キャメル形式  |
+| ------------ | ------------- | ------------- |
+| `UI`         | `UIControl`   | `uiControl`   |
+| `HTML`       | `HtmlParser`  | `htmlParser`  |
+| `ID`         | `IdGenerator` | `idGenerator` |
 
 #### ファイル名
 {:#name-filename}
 
-| 種類             | 形式       |
-| ---------------- | ---------- |
-| ディレクトリ     | PascalCase |
-| クラスファイル   | PascalCase |
-| その他のファイル | camelCase  |
+| 種類             | 形式   |
+| ---------------- | ------ |
+| ディレクトリ     | Pascal |
+| クラスファイル   | Pascal |
+| その他のファイル | Camel  |
 
 #### 識別子
 {:#name-identifier}
 
-| 種類                                                                                | 基本形式                                  | 備考                                                         |
-| ----------------------------------------------------------------------------------- | ----------------------------------------- | ------------------------------------------------------------ |
-| `attributes`{:.code .language-maxscript}定義名                                      | `PascalCase`{:.code .language-maxscript}  |                                                              |
-| `macroscript`{:.code .language-maxscript}定義名                                     | `PascalCase`{:.code .language-maxscript}  |                                                              |
-| `parameters`{:.code .language-maxscript}定義名                                      | `PascalCase`{:.code .language-maxscript}  |                                                              |
-| `plugin`{:.code .language-maxscript}定義名                                          | `PascalCase`{:.code .language-maxscript}  |                                                              |
-| `rcmenu`{:.code .language-maxscript}定義名                                          | `PascalCase`{:.code .language-maxscript}  | 構造体定義と同様の扱い                                       |
-| `rollout`{:.code .language-maxscript}定義名                                         | `PascalCase`{:.code .language-maxscript}  | 構造体定義と同様の扱い                                       |
-| `struct`{:.code .language-maxscript}の`private`{:.code .language-maxscript}メンバ名 | `camelCase`{:.code .language-maxscript}   |                                                              |
-| `struct`{:.code .language-maxscript}の`public`{:.code .language-maxscript}メンバ名  | `PascalCase`{:.code .language-maxscript}  |                                                              |
-| `struct`{:.code .language-maxscript}定義名                                          | `PascalCase`{:.code .language-maxscript}  |                                                              |
-| `tool`{:.code .language-maxscript}定義名                                            | `PascalCase`{:.code .language-maxscript}  |                                                              |
-| UIコントロール変数名                                                                | `PascalCase`{:.code .language-maxscript}  | 構造体`public`{:.code .language-maxscript}メンバと同様の扱い |
-| イベントハンドラ名                                                                  | `PascalCase`{:.code .language-maxscript}  | 構造体`public`{:.code .language-maxscript}メンバと同様の扱い |
-| インタフェース                                                                      | `PascalCase`{:.code .language-maxscript}  |                                                              |
-| 関数名                                                                              | `camelCase`{:.code .language-maxscript}   |                                                              |
-| 記号パス名                                                                          | `$PascalCase`{:.code .language-maxscript} |                                                              |
-| 定数                                                                                | `PascalCase`{:.code .language-maxscript}  |                                                              |
-| 変数名                                                                              | `camelCase`{:.code .language-maxscript}   |                                                              |
-| 名前値リテラル                                                                      | `#PascalCase`{:.code .language-maxscript} |                                                              |
-| 予約キーワード                                                                      | `camelCase`{:.code .language-maxscript}   |                                                              |
+| 種類                                        | 形式   | 例                                              | 備考                                                   |
+| ------------------------------------------- | ------ | ----------------------------------------------- | ------------------------------------------------------ |
+| `attributes`{:.code .language-maxscript}    | Pascal | `TestAttribute`{:.code .language-maxscript}     |                                                        |
+| `macroscript`{:.code .language-maxscript}   | Pascal | `TestMacro`{:.code .language-maxscript}         |                                                        |
+| `parameters`{:.code .language-maxscript}    | Pascal | `TestParameter`{:.code .language-maxscript}     |                                                        |
+| `plugin`{:.code .language-maxscript}        | Pascal | `TestPlugin`{:.code .language-maxscript}        |                                                        |
+| `private`{:.code .language-maxscript}メンバ | Camel  | `TestProperty`{:.code .language-maxscript}      |                                                        |
+| `public`{:.code .language-maxscript}メンバ  | Pascal | `testProperty`{:.code .language-maxscript}      |                                                        |
+| `rcmenu`{:.code .language-maxscript}        | Pascal | `MnuTest`{:.code .language-maxscript}           | 構造体定義と同様の扱い                                 |
+| `rollout`{:.code .language-maxscript}       | Pascal | `RltTest`{:.code .language-maxscript}           | 構造体定義と同様の扱い                                 |
+| `struct`{:.code .language-maxscript}        | Pascal | `TestStruct`{:.code .language-maxscript}        |                                                        |
+| `tool`{:.code .language-maxscript}          | Pascal | `TestTool`{:.code .language-maxscript}          |                                                        |
+| UIコントロール                              | Pascal | `BtnTest`{:.code .language-maxscript}           | `public`{:.code .language-maxscript}メンバと同様の扱い |
+| イベントハンドラ                            | Pascal | `Pressed`{:.code .language-maxscript}           | `public`{:.code .language-maxscript}メンバと同様の扱い |
+| インタフェース                              | Pascal | `InstanceMgr`{:.code .language-maxscript}       |                                                        |
+| 関数                                        | Camel  | `testFunction`{:.code .language-maxscript}      |                                                        |
+| 記号パス                                    | Pascal | `"$StartupScripts"`{:.code .language-maxscript} |                                                        |
+| 変数                                        | Camel  | `testVariable`{:.code .language-maxscript}      |                                                        |
+| 名前値リテラル                              | Pascal | `#TestName`{:.code .language-maxscript}         |                                                        |
+| 予約キーワード                              | Camel  | `true`{:.code .language-maxscript}              |                                                        |
 
 #### UIコントロールの変数名
 {:#name-ui-control-variable-name}
@@ -430,7 +430,7 @@ UIコントロールの変数名の先頭には以下に定めた識別子を使
 | `colorPicker`{:.code .language-maxscript}    | `ColorPickerControl`{:.code .language-maxscript}        | `Cpk`{:.code .language-maxscript}   |
 | `comboBox`{:.code .language-maxscript}       | `ComboBoxControl`{:.code .language-maxscript}           | `Cbx`{:.code .language-maxscript}   |
 | `curveControl`{:.code .language-maxscript}   | `MaxCurveCtl`{:.code .language-maxscript}               | `Cc`{:.code .language-maxscript}    |
-| `dropDownList`{:.code .language-maxscript}   | `ComboBoxControl`{:.code .language-maxscript}（バグ？） | `Ddl`{:.code .language-maxscript}   |
+| `dropdownList`{:.code .language-maxscript}   | `ComboBoxControl`{:.code .language-maxscript}（バグ？） | `Ddl`{:.code .language-maxscript}   |
 | `editText`{:.code .language-maxscript}       | `EditTextControl`{:.code .language-maxscript}           | `Edt`{:.code .language-maxscript}   |
 | `groupBox`{:.code .language-maxscript}       | `GroupBoxControl`{:.code .language-maxscript}           | `Gbx`{:.code .language-maxscript}   |
 | `hyperLink`{:.code .language-maxscript}      | `LinkControl`{:.code .language-maxscript}               | `Hlk`{:.code .language-maxscript}   |
@@ -484,9 +484,9 @@ UIコントロールの変数名の先頭には以下に定めた識別子を使
 
 | 種類                                               | 識別子                               |
 | -------------------------------------------------- | ------------------------------------ |
-| `dropDownMenu`{:.code .language-maxscript}         | `Ddm`{:.code .language-maxscript}    |
-| `dropDownMenuButton`{:.code .language-maxscript}   | `Ddmbtn`{:.code .language-maxscript} |
-| `dropDownMenuEditText`{:.code .language-maxscript} | `Ddmedt`{:.code .language-maxscript} |
+| `dropdownMenu`{:.code .language-maxscript}         | `Ddm`{:.code .language-maxscript}    |
+| `dropdownMenuButton`{:.code .language-maxscript}   | `Ddmbtn`{:.code .language-maxscript} |
+| `dropdownMenuEditText`{:.code .language-maxscript} | `Ddmedt`{:.code .language-maxscript} |
 -->
 
 ### スタイル
