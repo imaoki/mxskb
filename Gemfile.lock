@@ -201,19 +201,11 @@ GEM
       jekyll (>= 3.5, < 5.0)
       jekyll-feed (~> 0.9)
       jekyll-seo-tag (~> 2.1)
-<<<<<<< HEAD
     multi_json (1.14.1)
     multipart-post (2.1.1)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
     nokogiri (1.10.9-x64-mingw32)
-=======
-    minitest (5.11.3)
-    multipart-post (2.0.0)
-    nokogiri (1.10.8)
-      mini_portile2 (~> 2.4.0)
-    nokogiri (1.10.8-x64-mingw32)
->>>>>>> eef1b217b2baa9fa4f1e6f6218e0a6a7c36908cd
       mini_portile2 (~> 2.4.0)
     octokit (4.18.0)
       faraday (>= 0.9)
