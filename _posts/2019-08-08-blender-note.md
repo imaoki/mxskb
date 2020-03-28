@@ -107,7 +107,7 @@ Orbit & Pan
 
     frames_toggle_auto_keying.py
     : ```python
-      """! © 2019 imaoki | MIT License | https://github.com/imaoki """
+      """! © 2020 imaoki | MIT License | https://github.com/imaoki """
       bl_info = {
         "name": "Toggle Auto Keying",
         "description": "Toggle auto keying",
