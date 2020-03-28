@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="https://imaoki.github.io/mxskb/assets/css/syntax.css">
 <link rel="stylesheet" href="https://imaoki.github.io/mxskb/assets/css/photoswipe.css">
 <link rel="stylesheet" href="https://imaoki.github.io/mxskb/assets/css/default-skin/default-skin.css">
+<title></title>
 <script src="https://imaoki.github.io/mxskb/assets/js/smooth-scroll.min.js"></script>
 <script src="https://imaoki.github.io/mxskb/assets/js/photoswipe.min.js"></script>
 <script src="https://imaoki.github.io/mxskb/assets/js/photoswipe-ui-default.min.js"></script>
@@ -47,14 +48,13 @@
   });
 
   var toc = document.querySelector(".table-of-contents");
-  var tocParentP = toc.parentNode;
   var postMain = document.querySelector(".post.main");
   postMain.parentNode.insertBefore(toc, postMain);
 
-  // tocParentP.parentNode.removeChild(tocParentP);
-
+  var headTitle = document.querySelector("head > title");
   var pageTitleA = document.querySelector(".page.title > a");
   var firstH1 = document.querySelector(".post.main > h1:first-of-type");
+  headTitle.textContent = firstH1.textContent;
   pageTitleA.textContent = firstH1.textContent;
 
   firstH1.parentNode.removeChild(firstH1);
@@ -73,7 +73,6 @@
       el.parentNode.removeChild(el);
     }
   });
-
 })();
 </script>
 </html>
