@@ -93,7 +93,7 @@
         }
       });
 
-      mxskb.each(document.querySelectorAll("a[class*='reversefootnote'"), function(el, i) {
+      mxskb.each(document.querySelectorAll("a[class*='reversefootnote']"), function(el, i) {
         var parentNode = el.parentNode;
         if (parentNode) {
           parentNode.innerHTML = parentNode.innerHTML.replace("&nbsp;", "");
