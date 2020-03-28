@@ -1,6 +1,6 @@
 ---
 ---
-/*! © 2019 imaoki | MIT License | https://github.com/imaoki */
+/*! © 2020 imaoki | MIT License | https://github.com/imaoki */
 
 // =============================================================================
 // Const
@@ -862,7 +862,7 @@ a {
 // TOC
 // =============================================================================
 
-.toc {
+.table-of-contents > ul {
   border-radius: 1.5rem;
   display: flex;
   flex-flow: column nowrap;
