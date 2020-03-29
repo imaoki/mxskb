@@ -1,6 +1,6 @@
 /*
 Language: Extended Backus-Naur Form
-Author: imaoki <imaoki117@gmail.com>
+Author: imaoki <https://github.com/imaoki>
 */
 
 var hljslang = hljslang || {};

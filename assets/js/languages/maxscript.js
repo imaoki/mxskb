@@ -1,6 +1,6 @@
 /*
 Language: MAXScript
-Author: imaoki <imaoki117@gmail.com>
+Author: imaoki <https://github.com/imaoki>
 Description: MAXScript is the built-in scripting language of 3ds Max.
 Category: graphics
 */

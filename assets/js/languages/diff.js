@@ -1,6 +1,6 @@
 /*
 Language: Diff
-Author: imaoki <imaoki117@gmail.com>
+Author: imaoki <https://github.com/imaoki>
 Description: Supports normal, context and unified format.
 Category: common
 */
