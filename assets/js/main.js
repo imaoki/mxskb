@@ -24,6 +24,8 @@
     Array.prototype.forEach.call(elements, fn);
   };
 
+  // icon.html用
+  // テキストをコピーする
   mxskb.execCopy = function(textValue) {
     var dummy = document.createElement("div");
     dummy.style.position = "fixed";
@@ -47,6 +49,7 @@
 
   var init = function() {
     mxskb.addInitHandler(function() {
+      // highlight.js初期化
       if (window.hljs) {
         window.hljs.configure({languages: []});
 
@@ -67,6 +70,7 @@
         });
       }
 
+      // SmoothScroll初期化
       if (window.SmoothScroll) {
         new window.SmoothScroll("a[href*='#']", {
           speed: 75,
@@ -74,12 +78,14 @@
         })
       }
 
+      // リンク画像にクラスを追加
       mxskb.each(document.getElementsByTagName("a"), function(el, i) {
         if (el.getElementsByTagName("img").length) {
           el.classList.add("image");
         }
       });
 
+      // 整形済みテキストの言語情報をクラス化
       mxskb.each(document.getElementsByTagName("pre"), function(el, i) {
         var re = /.*\blanguage-(\w+)\b.*/;
         var elements = el.getElementsByTagName("code");
@@ -93,6 +99,7 @@
         }
       });
 
+      // 脚注の空白を除去
       mxskb.each(document.querySelectorAll("a[class*='reversefootnote']"), function(el, i) {
         var parentNode = el.parentNode;
         if (parentNode) {
@@ -100,6 +107,7 @@
         }
       });
 
+      // PhotoSwipe初期化
       if (window.PhotoSwipe && window.photoswipeSimplify) {
         window.photoswipeSimplify.init({
           bgOpacity: 0.9,

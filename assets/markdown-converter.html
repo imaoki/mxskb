@@ -17,6 +17,7 @@
 <script src="https://imaoki.github.io/mxskb/assets/js/photoswipe-simplify.min.js"></script>
 <script src="https://imaoki.github.io/mxskb/assets/js/highlight.min.js"></script>
 <script src="https://imaoki.github.io/mxskb/assets/js/main.min.js"></script>
+<script src="https://imaoki.github.io/mxskb/assets/js/markdown-converter.min.js"></script>
 </head>
 <body class="page wrapper">
 <header class="page header">
@@ -40,39 +41,4 @@
 <ul class="hlist"></ul>
 </footer>
 </body>
-<script>
-(function (){
-  mxskb.each(document.querySelectorAll("a[for*='toc-anchor']"), function(el, i) {
-    el.nextElementSibling.id = el.id;
-    el.parentNode.removeChild(el);
-  });
-
-  var toc = document.querySelector(".table-of-contents");
-  var postMain = document.querySelector(".post.main");
-  postMain.parentNode.insertBefore(toc, postMain);
-
-  var headTitle = document.querySelector("head > title");
-  var pageTitleA = document.querySelector(".page.title > a");
-  var firstH1 = document.querySelector(".post.main > h1:first-of-type");
-  headTitle.textContent = firstH1.textContent;
-  pageTitleA.textContent = firstH1.textContent;
-
-  firstH1.parentNode.removeChild(firstH1);
-
-  var lastModDate = new Date(document.lastModified);
-  var format = "YYYY-MM-dd";
-  format = format.replace(/YYYY/, lastModDate.getFullYear());
-  format = format.replace(/MM/, ("0" + (lastModDate.getMonth() + 1)).slice(-2));
-  format = format.replace(/dd/, ("0" + lastModDate.getDate()).slice(-2));
-
-  var time = document.querySelector(".icon.date.updated");
-  time.textContent = format;
-
-  mxskb.each(document.querySelectorAll("p"), function(el, i) {
-    if(el.childNodes.length === 0) {
-      el.parentNode.removeChild(el);
-    }
-  });
-})();
-</script>
 </html>
