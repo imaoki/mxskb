@@ -1256,7 +1256,8 @@ a {
     }
   }
 
-  .key {
+  .key,
+  kbd {
     background-color: $color-content-l1-back;
     border-radius: 0.25rem;
     box-shadow: 0 0.125rem 0 0.125rem $color-content-l1-back-dark;
