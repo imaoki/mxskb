@@ -244,16 +244,17 @@ $line-height-toc: 1.375;
 @mixin post-content-header($level, $color, $margin-normal: 1rem) {
   $header-level: $level - $header-level-start + 1;
   $mark-font-family: $font-external;
-  $mark-font-size: $header-font-size-base + $header-font-size-offset * (6 - $header-level);
+  $mark-font-size: $header-font-size-base + $header-font-size-offset * (6 - $header-level) * 0.5;
   $mark-margin-side: $header-margin-offset * ($header-level - 1);
 
   background-color: $color;
   border-radius: 0.25rem;
   margin-left: $mark-margin-side;
   margin-right: $mark-margin-side;
-  padding: (0.5rem * (6 - $header-level)) 1rem;
+  padding: (0.375rem * (6 - $header-level)) 1rem;
   position: relative;
-  text-align: center;
+  // text-align: center;
+  text-align: left;
 
   &::before {
     // content: toString($header-level);
@@ -261,11 +262,13 @@ $line-height-toc: 1.375;
     content: generateHeaderMark($header-level, $header-mark-start);
     font-family: $mark-font-family;
     font-size: $mark-font-size;
-    left: 0.25rem;
+    // left: 0.25rem;
     line-height: $line-height-icon;
-    margin: auto 0;
-    position: absolute;
-    top: 0.25rem;
+    margin: 0 0.5rem 0 -0.5rem;
+    // position: absolute;
+    // top: 0.25rem;
+    // bottom: 0.25rem;
+    vertical-align: baseline;
   }
 
   // &::after {
