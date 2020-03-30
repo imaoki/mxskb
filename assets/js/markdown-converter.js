@@ -18,7 +18,7 @@ mxskb.addInitHandler(function() {
   var firstH2 = document.querySelector(".post.main > h2:first-of-type");
 
   var headTitleContent = "Title"
-  if (firstH1) headTitleContent += firstH1.textContent;
+  if (firstH1) headTitleContent = firstH1.textContent;
   if (firstH2) headTitleContent += " " + firstH2.textContent;
 
   // ヘッダタイトル
