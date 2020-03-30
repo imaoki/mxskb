@@ -1033,7 +1033,8 @@ a {
     @include block-child-margin;
   }
 
-  code {
+  code,
+  kbd {
     background-color: $color-code-back;
     color: $color-code-fore;
     font-size: 1rem;
