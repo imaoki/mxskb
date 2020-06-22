@@ -1,6 +1,6 @@
 ---
 title: 3ds Max ホットキー
-date: 2020-06-22 15:52:00 +0900
+date: 2020-06-22 16:51:00 +0900
 updated:
 categories: note
 tags: 3dsmax
@@ -9,44 +9,41 @@ published: true
 ---
 3ds Max ホットキーの設定。
 
-| Action                        | Hotkey                        |
-| ----------------------------- | ----------------------------- |
-| Back View                     | `K`{:.key}                    |
-| Backface Cull Toggle          | `Alt+B`{:.key}                |
-| Cap (Poly)                    |                               |
-| Create Command Mode           | `NumPad 1`{:.key}             |
-| Cycle Selection Method        |                               |
-| Display Command Mode          | `NumPad 5`{:.key}             |
-| Display Floater Toggle        | `Shift+Ctrl+D`{:.key}         |
-| Go to End Frame               | `End`{:.key}, `Alt+.`{:.key}  |
-| Go to Start Frame             | `Home`{:.key}, `Alt+,`{:.key} |
-| Hide Frozen Objects Toggle    | `Shift+Ctrl+F`{:.key}         |
-| Hide Space Warps Toggle       |                               |
-| HideBonesToggle               | `Shift+B`{:.key}              |
-| Hierarchy Command Mode        | `NumPad 3`{:.key}             |
-| InitializeCenterPoint         | `Alt+Shift+Ctrl+Space`{:.key} |
-| Local Coordinate System       | `Shift+Ctrl+L`{:.key}         |
-| Merge File                    | `Shift+Ctrl+M`{:.key}         |
-| Modify Command Mode           | `NumPad 2`{:.key}             |
-| Motion Command Mode           | `NumPad 4`{:.key}             |
-| Next/Previous Key Mode Toggle | `Alt+K`{:.key}                |
-| Pan View                      |                               |
-| Pan Viewport                  |                               |
-| Parent Coordinate System      | `Shift+Ctrl+P`{:.key}         |
-| Percent Snap Toggle           |                               |
-| Properties                    | `Ctrl+P`{:.key}               |
-| Reset File                    | `Shift+Ctrl+R`{:.key}         |
-| Right View                    | `I`{:.key}                    |
-| Save File As                  | `Alt+Ctrl+S`{:.key}           |
-| Screen Coordinate System      | `Shift+Ctrl+S`{:.key}         |
-| Select Object                 | `Q`{:.key}                    |
-| Set Keys                      |                               |
-| Show Motion Paths             | `Alt+M`{:.key}                |
-| Smart Select                  |                               |
-| Utility Command Mode          | `NumPad 6`{:.key}             |
-| Viewport Background           |                               |
-| Virtual Viewport Pan Down     |                               |
-| Virtual Viewport Pan Left     |                               |
-| Virtual Viewport Pan Right    |                               |
-| Weld (Poly)                   |                               |
-| World Coordinate System       | `Shift+Ctrl+W`{:.key}         |
+| Action                        | Hotkey                        | Group   | Category          |
+| ----------------------------- | ----------------------------- | ------- | ----------------- |
+| Back View                     | `K`{:.key}                    | Main UI | Views             |
+| Backface Cull Toggle          | `Alt+B`{:.key}                | Main UI | Tools             |
+| Create Command Mode           | `NumPad 1`{:.key}             | Main UI | Tools             |
+| Cycle Selection Method        |                               | Main UI | Tools             |
+| Disable Viewport              |                               | Main UI | Views             |
+| Display Command Mode          | `NumPad 5`{:.key}             | Main UI | Tools             |
+| Display Floater Toggle        | `Ctrl+Shift+D`{:.key}         | Main UI | Edit              |
+| Go to End Frame               | `End`{:.key}, `Alt+.`{:.key}  | Main UI | Time              |
+| Go to Start Frame             | `Home`{:.key}, `Alt+,`{:.key} | Main UI | Time              |
+| Hide Frozen Objects Toggle    | `Ctrl+Shift+F`{:.key}         | Main UI | Tools             |
+| Hierarchy Command Mode        | `NumPad 3`{:.key}             | Main UI | Tools             |
+| InitializeCenterPoint         | `Ctrl+Alt+Shift+Space`{:.key} | Main UI | * - Command       |
+| Local Coordinate System       | `Ctrl+Shift+L`{:.key}         | Main UI | Coordinate System |
+| Merge File                    | `Ctrl+Shift+M`{:.key}         | Main UI | File              |
+| Modify Command Mode           | `NumPad 2`{:.key}             | Main UI | Tools             |
+| Motion Command Mode           | `NumPad 4`{:.key}             | Main UI | Tools             |
+| Next/Previous Key Mode Toggle | `Alt+K`{:.key}                | Main UI | Tools             |
+| Pan View                      |                               | Main UI | Views             |
+| Pan Viewport                  |                               | Main UI | Tools             |
+| Parent Coordinate System      | `Ctrl+Shift+P`{:.key}         | Main UI | Coordinate System |
+| Properties                    | `Ctrl+P`{:.key}               | Main UI | Edit              |
+| Reset File                    | `Ctrl+Shift+R`{:.key}         | Main UI | File              |
+| Right View                    | `I`{:.key}                    | Main UI | Views             |
+| Save File As                  | `Ctrl+Alt+S`{:.key}           | Main UI | File              |
+| Save Incremental (+)          |                               | MainUI  | File              |
+| Screen Coordinate System      | `Ctrl+Shift+S`{:.key}         | Main UI | Coordinate System |
+| Select Object                 | `Q`{:.key}                    | Main UI | Selection         |
+| Set Keys                      |                               | Main UI | Set Key Tools     |
+| Show Motion Paths             | `Alt+M`{:.key}                | Main UI | Tools             |
+| Smart Select                  |                               | Main UI | Selection         |
+| Utility Command Mode          | `NumPad 6`{:.key}             | Main UI | Tools             |
+| Viewport Background           |                               | Main UI | Views             |
+| Virtual Viewport Pan Down     |                               | Main UI | Tools             |
+| Virtual Viewport Pan Left     |                               | Main UI | Tools             |
+| Virtual Viewport Pan Right    |                               | Main UI | Tools             |
+| World Coordinate System       | `Ctrl+Shift+W`{:.key}         | Main UI | Coordinate System |
