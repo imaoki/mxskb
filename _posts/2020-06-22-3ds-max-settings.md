@@ -1,13 +1,47 @@
 ---
-title: 3ds Max ホットキー
-date: 2020-06-22 16:51:00 +0900
+title: 3ds Max 設定
+date: 2020-06-22 17:54:00 +0900
 updated:
 categories: note
 tags: 3dsmax
-toc: false
+toc: true
 published: true
 ---
-3ds Max ホットキーの設定。
+3ds Maxの設定。
+
+### Preferences
+{:#preferences}
+
+| タブ          | グループ                     | 項目                                | 値                                 |
+| ------------- | ---------------------------- | ----------------------------------- | ---------------------------------- |
+| Animation     | Key Bracket Display          |                                     | `Selected Objects`                 |
+| Files         | Auto Backup                  | Backup Interval                     | `2.0`                              |
+| Files         | Auto Backup                  | Number of Autobak files             | `99`                               |
+| Files         | File Handling                | Recent Files in Menu                | `50`                               |
+| Files         | File String Data Handling    | Default Language                    | `Japanese`                         |
+| Gamma and LUT |                              | Enable Gamma/LUT Correction         | `True`                             |
+| General       | Scene Undo                   | Levels                              | `128`                              |
+| General       | Spinners                     | Precision                           | `4`                                |
+| General       | Spinners                     | Wrap Cursor Near Spinner            | `True`                             |
+| General       | UI Display                   | Display Stack Collapse Warning      | `False`                            |
+| General       | UI Display                   | Display Topology-Dependence Warning | `False`                            |
+| General       | UI Display                   | Enable Caddy Controls               | `False`                            |
+| General       | UI Display                   | Fixed Width Text Buttons            | `90`                               |
+| Gizmos        | Move/Rotate Transforms       | Rotation Increment                  | `0.1`                              |
+| MAXScript     | MAXScript Windows            | Font                                | `Ricty Diminished Discord Regular` |
+| MAXScript     | MAXScript Windows            | Font size                           | `10`                               |
+| Viewports     | Selection/Preview Highlights |                                     | `False`                            |
+| Viewports     | Viewport Parameters          | Backface Cull on Object Creation    | `False`                            |
+
+### Custom User Interface
+{:#custom-user-interface}
+
+| タブ  | グループ      | 項目                                | 値     |
+| ----- | ------------- | ----------------------------------- | ------ |
+| Mouse | Mouse Control | Right Click Menu Over Selected Only | `True` |
+
+### Hotkey
+{:#hotkey}
 
 | Action                        | Hotkey                        | Group   | Category          |
 | ----------------------------- | ----------------------------- | ------- | ----------------- |
@@ -47,3 +81,20 @@ published: true
 | Virtual Viewport Pan Left     |                               | Main UI | Tools             |
 | Virtual Viewport Pan Right    |                               | Main UI | Tools             |
 | World Coordinate System       | `Ctrl+Shift+W`{:.key}         | Main UI | Coordinate System |
+
+### MaxStart.max
+{:#maxstart-max}
+
+| 場所                         | タブ       | グループ           | 項目                 | 値                |
+| ---------------------------- | ---------- | ------------------ | -------------------- | ----------------- |
+| Grid and Snap Settings       | Options    | General            | Angle                | `2.5`             |
+| Status Bar Controls          |            |                    | Adaptive Degradation | `False`           |
+| System Unit Setup            |            | System Unit Scale  | 1 Unit               | `1.0 Centimeters` |
+| Units Setup                  |            | Display Unit Scale |                      | `Generic Units`   |
+| Viewport Configuration       | Statistics | Setup              |                      | `Selection`       |
+| Viewport Configuration       | Statistics | Setup              | Edge Count           | `False`           |
+| Viewport Configuration       | Statistics | Setup              | Frames Per Second    | `True`            |
+| Viewport Configuration       | Statistics | Setup              | Polygon Count        | `False`           |
+| Viewport Configuration       | Statistics | Setup              | Triangle Count       | `True`            |
+| Viewport Configuration       | Statistics | Setup              | Vertex Count         | `True`            |
+| Viewport Per-View Preference |            |                    | Viewport Background  | `Solid Color`     |
