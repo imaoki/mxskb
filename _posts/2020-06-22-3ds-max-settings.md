@@ -1,6 +1,6 @@
 ---
 title: 3ds Max 設定
-date: 2020-06-22 17:54:00 +0900
+date: 2020-06-22 18:22:00 +0900
 updated:
 categories: note
 tags: 3dsmax
@@ -81,6 +81,13 @@ published: true
 | Virtual Viewport Pan Left     |                               | Main UI | Tools             |
 | Virtual Viewport Pan Right    |                               | Main UI | Tools             |
 | World Coordinate System       | `Ctrl+Shift+W`{:.key}         | Main UI | Coordinate System |
+
+### Default Controller
+{:#default-controller}
+
+| 種類     | クラス       |
+| -------- | ------------ |
+| Rotation | TCB Rotation |
 
 ### MaxStart.max
 {:#maxstart-max}
