@@ -1,7 +1,7 @@
 ---
 title: MAXScript ドキュメンテーションコメント
-date: 2017-02-27 00:16:00 +0900
-updated: 2019-04-19 17:56:00 +0900
+date: 2017-02-27 00:16:00
+updated: 2020-06-25 15:20:00
 categories: document
 tags: maxscript
 toc: true
@@ -22,23 +22,23 @@ doc_comment , { keyword } , var_name
 {:#syntax-example}
 
 ```maxscript
-/** @var <ClassName> 変数。 */
+/*- @var <ClassName> 変数。 */
 global sampleVar
 
-/**
+/*-
 構造体。
 @remarks 補足説明。
 */
 struct SampleStruct (
-  /** @prop <Number> 数値。既定値は`0`。 */
+  /*- @prop <Number> 数値。既定値は`0`。 */
   public Num = 0,
-  /** @prop <String> 文字列。既定値は`""`。 */
+  /*- @prop <String> 文字列。既定値は`""`。 */
   private str = "",
 
-  /** @prop <DotNetClass:System.Text.RegularExpressions.Regex> */
+  /*- @prop <DotNetClass:System.Text.RegularExpressions.Regex> */
   private regexClass = DotNetClass "System.Text.RegularExpressions.Regex",
 
-  /**
+  /*-
   パブリックメソッド。
   @param param1 <Integer> 位置パラメータ。
   @param param2 <Name> 位置パラメータ。
@@ -62,7 +62,7 @@ struct SampleStruct (
   @remarks 補足説明。
   */
   public fn PublicMethod param1 param2 &param3 param4:#() &param5: = (
-    /** @var <Float> ローカル変数。 */
+    /*- @var <Float> ローカル変数。 */
     local i
     (
       ok
@@ -70,7 +70,7 @@ struct SampleStruct (
     ok
   ),
 
-  /**
+  /*-
   プライベートメソッド。
   @return <OkClass>
   */
@@ -89,7 +89,7 @@ struct SampleStruct (
 {:#structure-syntax}
 
 ```ebnf
-"/**" , { text } , { tag } , "*/"
+"/*-" , { text } , { tag } , "*/"
 ```
 
 * 開始記号の`*`は2つ必要。
@@ -230,7 +230,7 @@ DataPair値
 型表記は無制限に入れ子が可能。
 
 ```maxscript
-/**
+/*-
 Array<Array<DataPair key:<String> value:<Any>>>
 */
 ```
@@ -242,7 +242,7 @@ Array<Array<DataPair key:<String> value:<Any>>>
   必要であればテキストの末尾に以下のような形式で記述する。
 
   ```maxscript
-  /**
+  /*-
   @param digit: <Integer> 桁数。既定値は`40`。
   */
   ```
@@ -252,11 +252,11 @@ Array<Array<DataPair key:<String> value:<Any>>>
 
   コード
   : ```maxscript
-    /**
+    /*-
     Fooとは
     */
     struct Foo (
-      /**
+      /*-
       Barとは
       */
       public fn Bar = (
@@ -401,7 +401,7 @@ doc.ebnf
 
               letter = ? a-zA-Z ? ;
 
-          doc_comment = "/**" , { any_char - "*/" } , "*/" ;
+          doc_comment = "/*-" , { any_char - "*/" } , "*/" ;
 
     delimited_comment = "/*" , { any_char - "*/" } , "*/" ;
 
@@ -555,7 +555,7 @@ doc_comment.ebnf
 
         whitespace = { space | new_line }+ ;
 
-              start = "/**" ;
+              start = "/*-" ;
 
                 end = "*/" ;
 

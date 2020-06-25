@@ -1,7 +1,7 @@
 ---
 title: MAXScript スタイルガイド
-date: 2017-04-17 23:28:00 +0900
-updated: 2019-09-24 07:18:00 +0900
+date: 2017-04-17 23:28:00
+updated: 2020-06-25 15:14:00
 categories: document
 tags: maxscript
 toc: true
@@ -821,19 +821,37 @@ assert (actual == expected)
   ただし、テーブル内の項目や値には付けない。
   テーブル内でも文章の場合には付ける。
 
+##### 定型
+
 * `BooleanClass`{:.code .language-maxscript}の変数、パラメータ、戻り値等の説明は以下の形式で記述する。
 
   ```maxscript
-  /**
+  /*-
   ○○の場合は`true`、○○の場合は`false`。
+  */
+  ```
+
+* 戻り値が`BooleanClass`のメソッドの説明は以下の形式で記述する。
+
+  ```maxscript
+  /*-
+  ○○かどうかを判定する。
   */
   ```
 
 * 既定値は文章の最後に記述する。
 
   ```maxscript
-  /**
+  /*-
   ○○の値。既定値は○○。
+  */
+  ```
+
+* 大文字と小文字を区別しない。
+
+  ```maxscript
+  /*-
+  大文字と小文字を区別しない。
   */
   ```
 

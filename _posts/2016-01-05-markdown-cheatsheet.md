@@ -1,7 +1,7 @@
 ---
 title: Markdown チートシート
-date: 2016-01-05 21:32:00 +0900
-updated: 2019-04-20 00:44:00 +0900
+date: 2016-01-05 21:32:00
+updated: 2019-04-20 00:44:00
 categories: document
 tags: markdown
 toc: true

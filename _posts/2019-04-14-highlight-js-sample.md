@@ -1,7 +1,7 @@
 ---
 title: highlight.js サンプル
-date: 2019-04-14 16:57:00 +0900
-updated: 2019-08-25 20:06:00 +0900
+date: 2019-04-14 16:57:00
+updated: 2019-08-25 20:06:00
 categories: sample
 tags: javascript markdown
 toc: true

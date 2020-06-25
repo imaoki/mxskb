@@ -1,7 +1,7 @@
 ---
 title: Blenderノート
-date: 2019-08-08 04:09:00 +0900
-updated: 2019-09-23 20:49:00 +0900
+date: 2019-08-08 04:09:00
+updated: 2019-09-23 20:49:00
 categories: note
 tags: blender
 toc: true

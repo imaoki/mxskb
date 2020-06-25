@@ -1,6 +1,6 @@
 ---
 title: Table of content
-date: 2018-08-03 11:07:00 +0900
+date: 2018-08-03 11:07:00
 updated:
 categories:
 tags:

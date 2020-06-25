@@ -1,6 +1,6 @@
 ---
 title: Analytics, tags and comments
-date: 2016-08-01 16:25:06 +0900
+date: 2016-08-01 16:25:06
 updated:
 categories: test
 tags: jekyll-clean-dark

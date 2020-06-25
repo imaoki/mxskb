@@ -1,6 +1,6 @@
 ---
 title: Table styles
-date: 2018-02-09 11:07:00 +0900
+date: 2018-02-09 11:07:00
 updated:
 categories:
 tags:

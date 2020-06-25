@@ -1,6 +1,6 @@
 ---
 title: Customizations
-date: 2016-09-20 16:25:06 +0900
+date: 2016-09-20 16:25:06
 updated:
 categories: jekyll
 tags: jekyll

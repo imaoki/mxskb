@@ -1,6 +1,6 @@
 ---
 title: Code snippets
-date: 2016-10-01 16:25:06 +0900
+date: 2016-10-01 16:25:06
 updated:
 categories: jekyll
 tags: jekyll

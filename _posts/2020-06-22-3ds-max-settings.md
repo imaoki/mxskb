@@ -1,6 +1,6 @@
 ---
 title: 3ds Max 設定
-date: 2020-06-22 18:22:00 +0900
+date: 2020-06-22 18:22:00
 updated:
 categories: note
 tags: 3dsmax
