@@ -1,7 +1,7 @@
 ---
 title: 3ds Max 設定
 date: 2020-06-22 18:22:00
-updated:
+updated: 2020-11-17 21:59:00
 categories: note
 tags: 3dsmax
 toc: true
@@ -47,6 +47,7 @@ published: true
 | ----------------------------- | ----------------------------- | ------- | ----------------- |
 | Back View                     | `K`{:.key}                    | Main UI | Views             |
 | Backface Cull Toggle          | `Alt+B`{:.key}                | Main UI | Tools             |
+| Center Point Cycle            | `Alt+P`{:.key}                | Main UI | Tools             |
 | Create Command Mode           | `NumPad 1`{:.key}             | Main UI | Tools             |
 | Cycle Selection Method        |                               | Main UI | Tools             |
 | Disable Viewport              |                               | Main UI | Views             |
