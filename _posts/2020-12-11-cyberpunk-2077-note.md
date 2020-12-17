@@ -5,7 +5,7 @@ updated: 2020-12-17 15:43:00
 categories: note
 tags: game
 toc: true
-published: true
+published: false
 ---
 GOG版のメモ。
 
