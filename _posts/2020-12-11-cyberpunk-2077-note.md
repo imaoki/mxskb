@@ -1,11 +1,11 @@
 ---
 title: Cyberpunk 2077 PC版ノート
 date: 2020-12-11 04:58:00
-updated: 2020-12-17 15:43:00
+updated: 2020-12-20 17:49:00
 categories: note
 tags: game
 toc: true
-published: false
+published: true
 ---
 GOG版のメモ。
 
@@ -59,8 +59,6 @@ GOG版はオーバーレイ非対応（2020年12月時点）のため、Xbox Gam
 ファイル
 : `\GOG Galaxy\Games\Cyberpunk 2077\r6\config\inputUserMappings.xml`
 
-`name="LeftX_Axis"`、`name="LeftY_Axis"`を持つ`mapping`要素の中身を以下のように変更する。`val`属性で速度を指定する。
-
 変更前
 : ```xml
   <mapping name="LeftX_Axis" type="Axis">
@@ -82,17 +80,18 @@ GOG版はオーバーレイ非対応（2020年12月時点）のため、Xbox Gam
     <button id="IK_Pad_LeftAxisX"/>
     <button id="IK_A" val="-1.0" overridableUI="left"/>
     <button id="IK_D" val="1.0" overridableUI="right"/>
-    <button id="IK_Alt" val="0.1" overridableUI="left"/>
-    <button id="IK_Alt" val="0.1" overridableUI="right"/>
+    <button id="IK_Alt" val="0" overridableUI="left"/>
+    <button id="IK_Alt" val="0" overridableUI="right"/>
   </mapping>
 
   <mapping name="LeftY_Axis" type="Axis">
     <button id="IK_Pad_LeftAxisY"/>
     <button id="IK_W" val="1.0" overridableUI="forward"/>
     <button id="IK_S" val="-1.0" overridableUI="back"/>
-    <button id="IK_Alt" val="0.1" overridableUI="forward"/>
-    <button id="IK_Alt" val="0.1" overridableUI="back"/>
+    <button id="IK_Alt" val="0" overridableUI="forward"/>
+    <button id="IK_Alt" val="0" overridableUI="back"/>
   </mapping>
   ```
 
 `Alt`{:.key}キーを押しながら移動するとゆっくりになる。ただし斜め移動は少し速くなってしまう。
+`val`属性を`0`以外の値にすると何れかの値が優先されて`Alt`{:.key}を押しただけで移動してしまう。
