@@ -1,7 +1,7 @@
 ---
 title: Cyberpunk 2077 PC版ノート
 date: 2020-12-11 04:58:00
-updated: 2020-12-20 17:49:00
+updated: 2020-12-29 02:37:00
 categories: note
 tags: game
 toc: true
@@ -30,12 +30,7 @@ GOG版のメモ。
 参考
 : * [MX Master 3's Middle click doesn't work in a few games \(like cyberpunk 2077\) : LogitechG](https://www.reddit.com/r/LogitechG/comments/ka1xm7/mx_master_3s_middle_click_doesnt_work_in_a_few/)
 
-### HUD付きのスクリーンショットを撮る方法
-
-GOG版はオーバーレイ非対応（2020年12月時点）のため、Xbox Game Bar（`Win+G`{:.key}）やGeForce Experience等のスクショ機能を使うしかない。（フレームレート表示も同様）
-既定で武器の切り替えに割り当てられている`Alt`{:.key}キーはスクショのショートカットとかち合うことがあるので適当なキーに変更しておく。
-
-### 設定ファイル調整MOD
+### MOD
 
 #### 分解とクラフトの時間を短縮
 
@@ -95,3 +90,17 @@ GOG版はオーバーレイ非対応（2020年12月時点）のため、Xbox Gam
 
 `Alt`{:.key}キーを押しながら移動するとゆっくりになる。ただし斜め移動は少し速くなってしまう。
 `val`属性を`0`以外の値にすると何れかの値が優先されて`Alt`{:.key}を押しただけで移動してしまう。
+
+#### 群集調整
+
+[Alternate Crowd Behavior](https://www.nexusmods.com/cyberpunk2077/mods/526)
+
+#### しゃがみのビネットエフェクトを削除
+
+[Crouch vignette effect remover](https://www.nexusmods.com/cyberpunk2077/mods/535)
+
+#### 起動時のイントロをスキップ
+
+[No Intro Videos](https://www.nexusmods.com/cyberpunk2077/mods/533)
+
+インストール管理＞設定から起動パラメーターに`-skipStartScreen`を加える。
