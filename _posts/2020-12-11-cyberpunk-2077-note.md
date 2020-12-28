@@ -1,7 +1,7 @@
 ---
 title: Cyberpunk 2077 PC版ノート
 date: 2020-12-11 04:58:00
-updated: 2020-12-29 02:37:00
+updated: 2020-12-29 08:04:00
 categories: note
 tags: game
 toc: true
@@ -51,45 +51,9 @@ GOG版のメモ。
 
 #### キーボードでゆっくり歩く
 
-ファイル
-: `\GOG Galaxy\Games\Cyberpunk 2077\r6\config\inputUserMappings.xml`
+[Walker \(all directions\)](https://www.nexusmods.com/cyberpunk2077/mods/576)
 
-変更前
-: ```xml
-  <mapping name="LeftX_Axis" type="Axis">
-    <button id="IK_Pad_LeftAxisX"/>
-    <button id="IK_A" val="-1.0" overridableUI="left"/>
-    <button id="IK_D" val="1.0" overridableUI="right"/>
-  </mapping>
-
-  <mapping name="LeftY_Axis" type="Axis">
-    <button id="IK_Pad_LeftAxisY"/>
-    <button id="IK_W" val="1.0" overridableUI="forward"/>
-    <button id="IK_S" val="-1.0" overridableUI="back"/>
-  </mapping>
-  ```
-
-変更後
-: ```xml
-  <mapping name="LeftX_Axis" type="Axis">
-    <button id="IK_Pad_LeftAxisX"/>
-    <button id="IK_A" val="-1.0" overridableUI="left"/>
-    <button id="IK_D" val="1.0" overridableUI="right"/>
-    <button id="IK_Alt" val="0" overridableUI="left"/>
-    <button id="IK_Alt" val="0" overridableUI="right"/>
-  </mapping>
-
-  <mapping name="LeftY_Axis" type="Axis">
-    <button id="IK_Pad_LeftAxisY"/>
-    <button id="IK_W" val="1.0" overridableUI="forward"/>
-    <button id="IK_S" val="-1.0" overridableUI="back"/>
-    <button id="IK_Alt" val="0" overridableUI="forward"/>
-    <button id="IK_Alt" val="0" overridableUI="back"/>
-  </mapping>
-  ```
-
-`Alt`{:.key}キーを押しながら移動するとゆっくりになる。ただし斜め移動は少し速くなってしまう。
-`val`属性を`0`以外の値にすると何れかの値が優先されて`Alt`{:.key}を押しただけで移動してしまう。
+斜め移動対応の決定版。
 
 #### 群集調整
 
