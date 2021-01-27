@@ -1,7 +1,7 @@
 ---
 title: 3ds Max 設定
 date: 2020-06-22 18:22:00
-updated: 2020-11-17 21:59:00
+updated: 2021-01-27 15:57:00
 categories: note
 tags: 3dsmax
 toc: true
@@ -19,8 +19,8 @@ published: true
 | Files         | Auto Backup                  | Number of Autobak files             | `99`                               |
 | Files         | File Handling                | Recent Files in Menu                | `50`                               |
 | Files         | File String Data Handling    | Default Language                    | `Japanese`                         |
-| Gamma and LUT |                              | Enable Gamma/LUT Correction         | `True`                             |
-| General       | Scene Undo                   | Levels                              | `128`                              |
+| Gamma and LUT |                              | Enable Gamma/LUT Correction         | プロジェクトに合わせる             |
+| General       | Scene Undo                   | Levels                              | `200`                              |
 | General       | Spinners                     | Precision                           | `4`                                |
 | General       | Spinners                     | Wrap Cursor Near Spinner            | `True`                             |
 | General       | UI Display                   | Display Stack Collapse Warning      | `False`                            |
