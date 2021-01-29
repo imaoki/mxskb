@@ -1,7 +1,7 @@
 ---
 title: 3ds Max 設定
 date: 2020-06-22 18:22:00
-updated: 2021-01-27 15:57:00
+updated: 2021-01-29 19:46:00
 categories: note
 tags: 3dsmax
 toc: true
@@ -106,3 +106,124 @@ published: true
 | Viewport Configuration       | Statistics | Setup              | Triangle Count       | `True`            |
 | Viewport Configuration       | Statistics | Setup              | Vertex Count         | `True`            |
 | Viewport Per-View Preference |            |                    | Viewport Background  | `Solid Color`     |
+
+### SciTEの設定
+{:#scite-settings}
+
+maxscript.properties
+: ```diff
+  --- Default/maxscript.properties
+  +++ 3ds Max 2018/maxscript.properties
+  @@ -74 +74 @@
+  -style.MAXScript.0=fore:#808080
+  +style.MAXScript.0=fore:#D0D0D0
+  @@ -90 +90 @@
+  -style.MAXScript.8=$(colour.operator),bold
+  +style.MAXScript.8=$(colour.operator)
+  @@ -98 +98 @@
+  -style.MAXScript.12=$(colour.keyword),bold
+  +style.MAXScript.12=$(colour.keyword)
+  @@ -100 +100 @@
+  -style.MAXScript.13=$(colour.preproc),bold
+  +style.MAXScript.13=$(colour.preproc)
+  @@ -110 +110 @@
+  -style.MAXScript.18=fore:#00B040,italics
+  +style.MAXScript.18=fore:#00B040
+  @@ -112 +112 @@
+  -style.MAXScript.19=fore:#D0B080,italics
+  +style.MAXScript.19=fore:#D0B080
+  @@ -114 +114 @@
+  -style.MAXScript.20=fore:#804020,italics
+  +style.MAXScript.20=fore:#804020
+  @@ -116 +116 @@
+  -style.MAXScript.21=fore:#3060A0,italics
+  +style.MAXScript.21=fore:#3060A0
+  @@ -120 +120 @@
+  -style.MAXScript.23=fore:#FF0000,bold,italics
+  +style.MAXScript.23=fore:#FF0000
+  ```
+
+MXS_Editor.properties
+: ```diff
+  --- Default/MXS_Editor.properties
+  +++ 3ds Max 2018/MXS_Editor.properties
+  @@ -56 +56 @@
+  -#view.eol=1
+  +view.eol=1
+  @@ -59 +59 @@
+  -view.whitespace=0
+  +view.whitespace=1
+  @@ -108,4 +108,6 @@
+  -tabsize=8
+  -indent.size=8
+  -use.tabs=1
+  -#indent.auto=1
+  +tabsize=2
+  +tab.size.$(file.patterns.MAXScript)=2
+  +indent.size=2
+  +indent.size.$(file.patterns.MAXScript)=2
+  +use.tabs=0
+  +indent.auto=0
+  @@ -116 +118,2 @@
+  -#backspace.unindents=0
+  +backspace.unindents=1
+  +indent.maintain.$(file.patterns.MAXScript)=1
+  @@ -151,2 +154,2 @@
+  -#eol.mode=LF
+  -eol.auto=1
+  +eol.mode=LF
+  +eol.auto=0
+  @@ -173,9 +176,5 @@
+  -statusbar.number=4
+  -statusbar.text.1=\
+  -li=$(LineNumber) co=$(ColumnNumber) offset=$(CharOffset) $(OverType) ($(EOLMode)) $(FileAttr)
+  -statusbar.text.2=\
+  -$(BufferLength) chars in $(NbOfLines) lines. Sel: $(SelLength) chars.
+  -statusbar.text.3=\
+  -Now is: Date=$(CurrentDate) Time=$(CurrentTime)
+  -statusbar.text.4=\
+  -$(FileNameExt) : $(FileDate) - $(FileTime) | Attributes: $(FileAttr) | Encoding: $(Encoding)
+  +statusbar.number=2
+  +statusbar.text.1=$(SelLength) chars selected. | Line:$(LineNumber) Column:$(ColumnNumber) | ($(EOLMode)) | $(Encoding) | $(OverType) | $(FileAttr)
+  +statusbar.text.2=$(BufferLength) chars in $(NbOfLines) lines. Sel: $(SelLength) chars.
+  +statusbar.text.3=Now is: Date=$(CurrentDate) Time=$(CurrentTime)
+  +statusbar.text.4=$(FileNameExt) : $(FileDate) - $(FileTime) | Attributes: $(FileAttr) | Encoding: $(Encoding)
+  @@ -184 +183 @@
+  -code.page=-1
+  +#code.page=-1
+  @@ -189 +188 @@
+  -#character.set=128
+  +character.set=128
+  @@ -191 +190 @@
+  -#code.page=65001
+  +code.page=65001
+  @@ -246,3 +245,3 @@
+  -font.base=font:Verdana,size:10
+  -font.small=font:Verdana,size:8
+  -font.comment=font:Comic Sans MS,size:9
+  +font.base=font:Ricty Diminished Discord,size:10
+  +font.small=font:Ricty Diminished Discord,size:10
+  +font.comment=font:Ricty Diminished Discord,size:10
+  @@ -253,5 +252,5 @@
+  -font.text=font:Times New Roman,size:11
+  -font.text.comment=font:Verdana,size:9
+  -font.embedded.base=font:Verdana,size:9
+  -font.embedded.comment=font:Comic Sans MS,size:8
+  -font.monospace=font:Courier New,size:10
+  +font.text=font:Ricty Diminished Discord,size:10
+  +font.text.comment=font:Ricty Diminished Discord,size:10
+  +font.embedded.base=font:Ricty Diminished Discord,size:10
+  +font.embedded.comment=font:Ricty Diminished Discord,size:10
+  +font.monospace=font:Ricty Diminished Discord,size:10
+  @@ -303,2 +302,2 @@
+  -print.header.style=font:Arial,size:12,bold
+  -print.footer.style=font:Arial Narrow,size:10,italics
+  +print.header.style=font:Ricty Diminished Discord,size:10
+  +print.footer.style=font:Ricty Diminished Discord,size:10
+  @@ -344,2 +343,3 @@
+  -#user.context.menu=\
+  -#||\
+  +user.context.menu=\
+  | +      |                      | \ |
+  | +UTF-8 | IDM_ENCODING_UCOOKIE |   |
+  ```

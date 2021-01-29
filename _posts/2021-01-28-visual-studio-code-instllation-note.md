@@ -1,5 +1,5 @@
 ---
-title: Visual Studio Codeインストールノート
+title: Visual Studio Code インストールノート
 date: 2021-01-28 02:50:00
 updated:
 categories: note

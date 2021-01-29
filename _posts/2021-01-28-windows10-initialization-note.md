@@ -1,7 +1,7 @@
 ---
-title: Windows 10初期設定ノート
+title: Windows 10 初期設定ノート
 date: 2021-01-28 03:46:00
-updated:
+updated: 2021-01-29 17:46:00
 categories: note
 tags: windows
 toc: true
@@ -17,17 +17,20 @@ SSDの最適化やOneDriveの移動等は行わず、なるべく標準を維持
 
 02. Windows Update
 
-03. Thumbs.dbの抑制化
+03. 回復ドライブ作成
 
-04. 回復ドライブの作成
+04. ビデオカードのドライバー更新
 
-05. ビデオカードのドライバー更新
+05. [基本設定](#basic-settings)
 
-06. 開発環境のインストール
+06. [バックアップ設定](#backups-settings)
 
-07. グラフィックアプリのインストール
+07. [アプリケーションインストール](#install-applications)
 
-### Thumbs.dbの抑制化
+### 基本設定
+{:#basic-settings}
+
+#### Thumbs.db抑制化
 {:#suppress-thumbs-db}
 
 システムのプロパティ > 詳細設定 > パフォーマンス > 視覚効果 > アイコンの代わりに縮小版を表示する
@@ -49,8 +52,8 @@ gpedit.msc > ユーザーの構成 > 管理用テンプレート > Windows コ�
   縮小表示の画像のキャッシュをオフにする
   : 有効
 
-### 詳細設定
-{:#advanced-settings}
+#### 文字入力設定
+{:#text-input-settings}
 
 設定 > デバイス > 入力 > キーボードの詳細設定 > 入力言語のホットキー > キーの詳細設定 > 入力言語を切り替える
 : なし
@@ -64,26 +67,61 @@ gpedit.msc > ユーザーの構成 > 管理用テンプレート > Windows コ�
 設定 > デバイス > 入力 > キーボードの詳細設定 > アプリ ウインドウごとに異なる入力方式を設定する
 : オフ
 
-システムのプロパティ > 詳細設定 > パフォーマンス > 視覚効果 > ウィンドウの下に影を表示する
-: オフ
+#### スリープモード設定
+{:#sleep-mode-settings}
 
 設定 > システム > 電源とスリープ > 電源の追加設定 > バランス > プラン設定の変更 > 詳細な電源設定の変更 > スリープ > スリープ解除タイマーの許可
 : 無効
 
-### トラブル
-{:#troubleshooting}
+デバイスマネージャー > ネットワーク アダプター > イーサネットコントローラのプロパティ > 電源の管理 > このデバイスで、コンピュータのスタンバイ状態を解除できるようにする
+: オフ
 
-* システムイメージの作成に失敗
-  [http://sas.at.webry.info/201712/article_1.html](http://sas.at.webry.info/201712/article_1.html)
+#### ウィンドウ境界の幅
+{:#window-border-width}
 
-* ネットワーク上にPCが表示されない
-  [https://www.pasoble.jp/windows/10/kyouyu-pc-hyoujsarenai.html](https://www.pasoble.jp/windows/10/kyouyu-pc-hyoujsarenai.html)
+キー
+: `HKEY_CURRENT_USER\Control Panel\Desktop\WindowMetrics`
 
-* クイックアクセスのピン留めが解除できない
-  [最近使ったフォルダ、ファイルのクイックアクセス表示の消去について](https://social.technet.microsoft.com/Forums/ja-JP/3e87e229-41f4-4427-be5e-242c0c0c7cc4?forum=win10itprogeneralJP)
+  文字列値
+  : `PaddedBorderWidth`
 
-### バックアップ
-{:#backups}
+    規定値
+    : `-60`
+
+    設定値
+    : `0`
+
+#### フォルダの種類を固定
+{:#fix-folder-type}
+
+全てのフォルダの種類を「全般」にする。
+
+01. 以下のキーを削除
+
+    * `HKEY_CURRENT_USER\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\Shell\BagMRU`
+
+    * `HKEY_CURRENT_USER\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags`
+
+02. 以下のキーと文字列値を追加
+
+    キー
+    : `HKEY_CURRENT_USER\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags\AllFolders\Shell`
+
+      文字列値
+      : 名前
+        : `FolderType`
+
+        値
+        : `NotSpecified`
+
+#### その他
+{:#other-settings}
+
+システムのプロパティ > 詳細設定 > パフォーマンス > 視覚効果 > ウィンドウの下に影を表示する
+: オフ
+
+### バックアップ設定
+{:#backups-settings}
 
 [Acronis True Image](https://www.acronis.com/ja-jp/personal/computer-backup/)
 
@@ -102,44 +140,46 @@ gpedit.msc > ユーザーの構成 > 管理用テンプレート > Windows コ�
   次の期間が経過したバージョンチェーンを削除する
   : 7日
 
-### レジストリ変更
-{:#registry-changes}
+### アプリケーションインストール
+{:#install-applications}
 
-#### ウィンドウ境界の幅
-{:#window-border-width}
+#### ユーティリティアプリ
+{:#install-utility-apps}
 
-画面端にピッタリ寄せたウィンドウを開き直した際に画面端との間に隙間ができる場合は以下のレジストリを設定する。
+* [7-Zip](https://sevenzip.osdn.jp/)
 
-キー
-: `HKEY_CURRENT_USER\Control Panel\Desktop\WindowMetrics`
+* [FileZilla](https://filezilla-project.org/)
 
-  文字列値
-  : `PaddedBorderWidth`
+* [MassiGra](http://www.massigra.net/)
 
-    規定値
-    : `-60`
+* [StrokesPlus.net](https://www.strokesplus.net/)
 
-    設定値
-    : `0`
+* [Sumatra PDF](https://www.sumatrapdfreader.org/free-pdf-reader.html)
 
-#### フォルダの種類を固定
-{:#fix-folder-type}
+#### 開発環境
+{:#install-development-environment}
 
-01. 以下のキーを削除
+01. [Visual Studio Code インストールノート](2021-01-28-visual-studio-code-instllation-note)
 
-    * `HKEY_CURRENT_USER\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\Shell\BagMRU`
+02. [Git for Windows インストールノート](2021-01-28-git-for-windows-instllation-note)
 
-    * `HKEY_CURRENT_USER\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags`
+03. [Jekyll インストールノート](2021-01-28-jekyll-instllation-note)
 
-02. PC再起動
+#### グラフィックアプリ
+{:#install-graphic-apps}
 
-03. 以下のキーを追加
+* [3ds Max 設定](2020-06-22-3ds-max-settings)
 
-    * `HKEY_CURRENT_USER\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags\AllFolders\Shell`
+* [Photoshop 設定](2021-01-29-photoshop-settings)
 
-      文字列値
-      : 名前
-        : `FolderType`
+### トラブルシューティング
+{:#troubleshooting}
 
-        値
-        : `NotSpecified`
+* システムイメージの作成に失敗
+  [https://sas.at.webry.info/201712/article_1.html](https://sas.at.webry.info/201712/article_1.html)
+
+* ネットワーク上にPCが表示されない
+  [https://www.pasoble.jp/windows/10/kyouyu-pc-hyoujsarenai.html](https://www.pasoble.jp/windows/10/kyouyu-pc-hyoujsarenai.html)
+
+* クイックアクセスのピン留めが解除できない
+  [https://social.technet.microsoft.com/Forums/ja-JP/3e87e229-41f4-4427-be5e-242c0c0c7cc4](https://social.technet.microsoft.com/Forums/ja-JP/3e87e229-41f4-4427-be5e-242c0c0c7cc4)
