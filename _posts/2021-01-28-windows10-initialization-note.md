@@ -1,7 +1,7 @@
 ---
 title: Windows 10 初期設定ノート
 date: 2021-01-28 03:46:00
-updated: 2021-02-02 03:05:00
+updated: 2021-02-09 04:55:00
 categories: note
 tags: windows
 toc: true
@@ -80,13 +80,20 @@ gpedit.msc > ユーザーの構成 > 管理用テンプレート > Windows コ�
 {:#video_tdr_failure-countermeasure}
 
 参考
-: [ブルースクリーン: VIDEO\_TDR\_FAILUREの原因と解決方法 – Windows10](https://itojisan.xyz/trouble/21921/)
+: * [ブルースクリーン: VIDEO\_TDR\_FAILUREの原因と解決方法 – Windows10](https://itojisan.xyz/trouble/21921/)
+
+  * [ついに解決「ディスプレイ ドライバー nvlddmkm が応答を停止しましたが、正常に回復しました。」問題 \| ひとりアウトプット広場](https://www.losspass.com/article/nvlddmkm.html)
 
 設定 > システム > 電源とスリープ > 電源の追加設定 > バランス > プラン設定の変更 > 詳細な電源設定の変更 > PCI Express > リンク状態の電源管理
 : オフ
 
 設定 > システム > 電源とスリープ > 電源の追加設定 > 電源ボタンの動作を選択する > シャットダウン設定 > 高速スタートアップを有効にする
 : オフ
+
+設定 > システム > 電源とスリープ > 電源の追加設定 > 電源プランの選択
+: 高パフォーマンス
+
+高パフォーマンスに設定した上で プラン設定の変更 > 詳細な電源設定の変更 を行う。
 
 #### ウィンドウ境界の幅
 {:#window-border-width}
