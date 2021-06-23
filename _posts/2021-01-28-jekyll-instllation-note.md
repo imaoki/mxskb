@@ -1,7 +1,7 @@
 ---
 title: Jekyll インストールノート
 date: 2021-01-28 03:07:00
-updated:
+updated: 2021-06-23 23:00:00
 categories: note
 tags: jekyll
 toc: true
@@ -61,3 +61,8 @@ published: true
 {:#if-the-update-of-the-configuration-file-is-not-reflected}
 
 コマンドプロンプトを起動して`bundle exec jekyll build`を入力する。
+
+#### (Bundler::GemNotFound)や(Gem::LoadError)が出る場合
+{:#bundler-gemnotfound-or-gem-loaderror}
+
+コマンドプロンプトを起動して`bundle update`を入力する。

@@ -1,7 +1,7 @@
 ---
 title: Windows 10 初期設定ノート
 date: 2021-01-28 03:46:00
-updated: 2021-02-10 05:03:00
+updated: 2021-06-23 23:06:00
 categories: note
 tags: windows
 toc: true
@@ -115,11 +115,17 @@ gpedit.msc > ユーザーの構成 > 管理用テンプレート > Windows コ�
         値
         : `NotSpecified`
 
-#### その他
-{:#other-settings}
+#### ウィンドウの下に影を表示しない
+{:disable-show-shadows-under-windows}
 
 システムのプロパティ > 詳細設定 > パフォーマンス > 視覚効果 > ウィンドウの下に影を表示する
 : オフ
+
+#### AeroスナップとAeroシェイクを無効にする
+{:#disable-aero-snap-and-aero-shake}
+
+コントロールパネル > コンピューターの簡単操作 > コンピューターの簡単操作センター > マウスを使いやすくします > ウィンドウ管理を簡単にします > ウィンドウが画面の端に移動されたときに自動的に整列されないようにします
+: オン
 
 ### バックアップ設定
 {:#backups-settings}
